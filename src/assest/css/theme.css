@@ -1,0 +1,64 @@
+
+:root{
+    font-family:Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+
+    /* for background-color:*/
+    --default-color:rgb(212, 252, 181);
+    --primary-color:black;
+    --secondary-color:white;
+    --gray-color:rgb(199, 198, 198);
+
+    /* for headers */
+    --head-txt-size:1rem;
+    --head-txt-weight:550;
+
+    --head-txt-color:var(--primary-color);
+    --head-txt-hover:var(--default-color);
+    /* end header */
+
+
+    /* for product-listing */
+
+    --pro-head-size:1.5rem;
+    --pro-head-weight:560;
+
+    --pro-md-size:1.2rem;
+    --pro-md-weight:530;
+
+    --pro-txt-size:1rem;
+    --pro-txt-weight:500;
+
+    --pro-txt-color:var(--primary-color);
+    /* end product-listing */
+
+
+    /* for cart page */
+    --cart-head-size:var(--pro-md-size);
+    --cart-head-weight:var(--pro-md-weight);
+
+    --cart-txt-size:1rem;
+    --cart-txt-weight:500;
+
+    --cart-txt-color:var(--default-color);
+
+    --real-price-size:1.1rem;
+    --real-price-weight:560;
+
+    --dis-price-size:.9rem;
+    --dis-price-weight:500;
+
+    /* cart page end */
+
+    /* land page */
+    --land-head-s:1.4rem;
+    --land-head-w:600;
+
+    --land-txt-s:var(--pro-md-size);
+    --land-txt-w:var(--pro-md-weight)
+
+
+    /* land page end */
+}
+
+
+
