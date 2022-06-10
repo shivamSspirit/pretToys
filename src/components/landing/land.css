@@ -1,0 +1,92 @@
+@import url(../../assest/css/theme.css);
+
+
+.landing-page{
+    display:flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--default-color);
+}
+
+.main-content{
+    width: 100%;
+    height: 80%;
+    overflow-x: hidden;
+}
+
+.land-search{
+    position: absolute;
+    left: 48rem;
+}
+
+.land-img-container{
+    width: 100%;
+    height: 28rem;
+    position: relative;
+}
+
+.land-img{
+    width: 100%;
+    max-height: 100%;
+}
+
+.overtoimg{
+    position: absolute;
+    top: 42%;
+    left: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.txt-0{
+    font-size: var(--land-head-s);
+    font-weight:var(--land-head-w) ;
+    color: var(--default-color);
+   text-align: center;
+}
+
+.land-b{
+    font-size: var(--land-txt-s);
+    font-weight:var(--land-txt-w) ;
+    color: var(--default-color);
+    width: 17rem;
+    background: none;
+    height: 2.5rem;
+    border: 1.5px solid var(--default-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+.land-b:hover{
+    background-color: var(--default-color);
+}
+
+.sec-title{
+    font-size: var(--land-head-s);
+    font-weight:var(--land-head-w) ;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.main-sec-two{
+    padding: 2.5rem;
+    width: 100vw;
+    height: 80vh;
+    /* overflow-x: hidden; */
+}
+
+.sec-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4.7rem;
+}
+
+.third-title{
+    font-size: var(--land-head-s);
+    font-weight:var(--land-head-w) ;
+    color: var(--primary-color);
+}
