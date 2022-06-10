@@ -35,6 +35,8 @@ export const getWishlistItemsHandler = function (schema, request) {
 
 export const addItemToWishlistHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
+
+
   try {
     if (!userId) {
       return new Response(
@@ -46,9 +48,10 @@ export const addItemToWishlistHandler = function (schema, request) {
       );
     }
     const userWishlist = schema.users.findBy({ _id: userId }).wishlist;
-    const { product } = JSON.parse(request.requestBody);
+    const { data } = JSON.parse(request.requestBody);
+
     userWishlist.push({
-      ...product,
+      ...data,
       createdAt: formatDate(),
       updatedAt: formatDate(),
     });
