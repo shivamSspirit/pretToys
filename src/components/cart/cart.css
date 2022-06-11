@@ -1,0 +1,191 @@
+@import url(../../assest/css/theme.css);
+
+.cart-search {
+	position: absolute;
+	left: 48rem;
+}
+
+.cart-container {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.cart-partition {
+	width: 100vw;
+	height: 95vh;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+    background-color: var(--default-color);
+}
+
+.my-cart{
+	text-align: center;
+	background-color: var(--default-color);
+	padding-bottom: 2rem;
+}
+
+.cart-products {
+	flex-basis: 50%;
+	background-color: var(--default-color);
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+
+}
+
+.align-card{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.cart-price {
+	flex-basis: 50%;
+	background-color: var(--default-color);
+	display: flex;
+	align-items: center;
+   
+}
+
+.cart-pro {
+	background: var(--primary-color);
+	margin: 0 auto;
+}
+
+.title-pro-cart {
+	font-size: var(--cart-head-size);
+	font-weight: var(--cart-head-weight);
+	color: var(--cart-txt-color);
+}
+
+.iphone-price {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	margin-top: 0.5rem;
+}
+
+.real-price {
+	font-size: var(--real-price-size);
+	font-weight: var(--real-price-weight);
+	color: var(--cart-txt-color);
+}
+
+.dis-price {
+	font-size: var(--dis-price-size);
+	font-weight: var(--dis-price-weight);
+	color: var(--cart-txt-color);
+	text-align: center;
+	text-decoration-line: line-through;
+}
+
+.dis-per {
+	color: rgb(153, 6, 6);
+}
+
+.quant {
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	margin-top: 0.5rem;
+	color: var(--default-color);
+}
+
+.symbol {
+	border: 1px solid var(--default-color);
+	padding: 0 0.4rem;
+}
+
+.btns-cart {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+.cart-btns {
+	background-color: var(--default-color);
+	color: var(--primary-color);
+	width: 7rem;
+	height: 1.5rem;
+	border: solid 1.3px white;
+	border-radius: 5px;
+}
+
+.cart-price {
+	width: 100%;
+}
+
+.price-details {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+	margin: 0 auto;
+	background-color: var(--primary-color);
+	padding: 1.3rem;
+}
+
+.p-detail-title {
+	font-size: var(--pro-md-size);
+	font-weight: var(--pro-md-weight);
+	color: var(--cart-txt-color);
+	border-bottom: 1px solid var(--default-color);
+	text-align: center;
+}
+
+.charges {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid var(--default-color);
+	color: var(--cart-txt-color);
+	gap: 0.5rem;
+}
+
+.row-prices {
+	display: flex;
+	flex-direction: row;
+	color: var(--cart-txt-color);
+}
+
+.row-item {
+	flex-basis: 50%;
+}
+
+.row-item1 {
+	flex-basis: 50%;
+	display: flex;
+	justify-content: end;
+	justify-items: end;
+}
+
+.total {
+	display: flex;
+	flex-direction: row;
+	color: var(--cart-txt-color);
+	border-bottom: 1px solid var(--default-color);
+}
+
+.total-price {
+	flex-basis: 50%;
+}
+
+.total-price1 {
+	flex-basis: 50%;
+	display: flex;
+	justify-content: end;
+	justify-items: end;
+}
+
+.cart-p-btn {
+	width: 12rem;
+	height: 2.2rem;
+	background-color: var(--default-color);
+	color: var(--primary-color);
+	margin: 0 auto;
+}

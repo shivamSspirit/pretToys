@@ -1,0 +1,67 @@
+@import url(../../../assest/css/theme.css);
+
+.login-container {
+	display: flex;
+	flex-direction: column;
+	gap: 3.3rem;
+	background-color: var(--default-color);
+	height: 100vh;
+}
+
+.ecom-search {
+	position: absolute;
+	left: 48rem;
+}
+
+.forms {
+	width: 100vw;
+	display: flex;
+	max-height: 80vh;
+}
+
+.ecom-form {
+	width: 37%;
+	margin: 0 auto;
+	background-color: var(--primary-color);
+	border: 2px solid var(--secondary-color);
+	border-radius: 5px;
+	box-shadow: inset;
+}
+
+.ecom-user {
+	text-align: center;
+	color: var(--default-color);
+}
+
+.ecom-label {
+	color: var(--default-color);
+}
+
+.login-btn-med {
+	margin-left: 1.8rem;
+}
+
+.log-btn {
+	background-color: var(--default-color);
+	color: var(--primary-color);
+}
+
+.ecom-warn {
+	position: absolute;
+	right: 30rem;
+	top: 14.5rem;
+}
+.ecom-email {
+	position: absolute;
+	right: 30rem;
+	top: 24.1rem;
+}
+
+.redirect {
+	margin-left: 4.7rem;
+}
+
+.ecom-signup {
+	text-decoration: none;
+	color: var(--default-color);
+}
