@@ -1,0 +1,36 @@
+@import url(../../assest/css/theme.css);
+
+
+.wish-container {
+    background-color: var(--default-color);
+}
+
+.wish-search {
+    position: absolute;
+    left: 48rem;
+}
+
+.wish-strech {
+    width: 15.9rem;
+}
+
+.my-wish {
+    text-align: center;
+}
+
+.wishes {
+    padding: 3rem;
+}
+
+.all-wishes {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.add-cl {
+    color: var(--default-color);
+}

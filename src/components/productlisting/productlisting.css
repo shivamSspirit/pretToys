@@ -1,0 +1,203 @@
+@import url(../../assest/css/theme.css);
+
+.product-container {
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.product-search {
+    position: absolute;
+    left: 47.5rem;
+}
+
+.parts {
+    max-width: 100vw;
+    max-height: 89.60vh;
+    display: flex;
+}
+
+.parts-1 {
+    flex-basis: 25%;
+    background-color: var(--default-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 1.5rem;
+    overflow-y: scroll;
+    max-width: 25vw;
+
+}
+
+.parts-1::-webkit-scrollbar {
+    width: .2em;
+}
+
+.parts-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.parts-1::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    outline: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+.head-title {
+    display: inline-flex;
+}
+
+.filter {
+    font-size: var(--pro-head-size);
+    font-weight: var(--pro-head-weight);
+    color: var(--pro-txt-color);
+    flex-basis: 50%;
+}
+
+.clear {
+    font-size: var(--pro-txt-size);
+    font-weight: var(--pro-txt-weight);
+    color: var(--pro-txt-color);
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+}
+
+.range-slide {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.price {
+    font-weight: var(--pro-md-weight);
+    font-size: var(--pro-md-size);
+    color: var(--pro-txt-color);
+}
+
+.slider {
+    width: 15rem;
+    -webkit-appearance: none;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    background-repeat: no-repeat;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: .7rem;
+    width: .7rem;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+}
+
+.slider::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checks-ecom {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.radio-ecom {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.sortby {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sortby-ecom {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.form-label {
+    font-weight: var(--pro-txt-weight);
+    font-size: var(--pro-txt-size);
+    color: var(--pro-txt-color);
+}
+
+/* give style to checks and radios */
+
+
+
+.parts-2 {
+    flex-basis: 75%;
+    background-color: var(--default-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: scroll;
+    max-width: 75vw;
+}
+
+.parts-2::-webkit-scrollbar {
+    width: .2em;
+}
+
+.parts-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.parts-2::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    outline: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+.part-2-head {
+    font-size: var(--pro-head-size);
+    font-weight: var(--pro-head-weight);
+    color: var(--primary-color);
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ecom-card0 {
+    height: 19.8rem;
+}
+
+.ecom-p0 {
+    width: 15.9rem;
+}
+
+.ecom-btn-cart {
+    font-size: var(--pro-txt-size);
+    font-weight: var(--pro-txt-weight);
+    color: var(--default-color);
+}

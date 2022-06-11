@@ -1,0 +1,19 @@
+@import url(../../../assest/css/theme.css);
+@import url(../login/login.css);
+
+.signup-container {
+	display: flex;
+	flex-direction: column;
+	gap: 3.3rem;
+	background-color: var(--default-color);
+	height: 100vh;
+}
+
+.redirect-signup{
+    margin-left: 2.8rem;
+}
+
+.ecom-login{
+    text-decoration: none;
+	color: var(--default-color);
+}
