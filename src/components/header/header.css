@@ -84,7 +84,7 @@ body {
 	flex-direction: row;
 	flex-basis: 25%;
 	gap: 1.5rem;
-	justify-content: end;
+	justify-content: flex-end;
 	justify-items: center;
 	align-items: center;
 }

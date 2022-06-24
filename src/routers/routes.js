@@ -13,7 +13,7 @@ import AuthRoutes from './authRoutes'
 // import { useAuth } from '../contexts/globalContext'
 
 
-import { BrowserRouter as  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 
 
