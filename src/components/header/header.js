@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './header.css'
 
 import shoppingBag from '../../assest/images/jpeg/shopping-bag.png'
@@ -7,19 +7,13 @@ import userIcon from '../../assest/images/jpeg/user.png'
 import headerIcon from '../../assest/images/jpeg/headicon.png'
 import searchIcon from '../../assest/images/jpeg/search.png'
 import { Link } from 'react-router-dom'
-import { useGlobal } from '../../contexts/globalContext'
+import { useAuth } from '../../contexts/auth-context'
 
 function Header() {
 
-    const { globalStateProperties } = useGlobal()
-    const [showLog, setShowLog] = useState(false)
+    // const { globalStateProperties } = useGlobal()
 
-    useEffect(() => {
-        if (globalStateProperties?.currentUser) {
-            setShowLog(true)
-        }
-    }, [globalStateProperties?.currentUser])
-
+    const { authToken } = useAuth()
 
     return (
         <div>
@@ -45,7 +39,7 @@ function Header() {
                     <div className="socials-ecom">
                         <span>
                             <Link to="/auth/login">
-                                <span>{showLog && 'Logoutnow'}</span>
+                                <span>{authToken && 'Logoutnow'}</span>
                                 <img src={userIcon}
                                     className="social-icons" />
                             </Link>

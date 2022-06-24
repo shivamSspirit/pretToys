@@ -1,25 +1,42 @@
 export const cartInitialState = {
     cartproducts: [], // total items and their quantity
-    totaDiscount: 0,
-    totalMoney: 0,
-    totalItems: 0,
+    totaDiscountonMrp: 0,
+    totalMoneyMrp: 0,
+    totalCartItems: 0,
+    deliveryCahrges: 500
 }
 
-export function CartReducer(state=cartInitialState, action) {
+export function CartReducer(state = cartInitialState, action) {
     switch (action.type) {
         // all actions are work on product card in cart
         case "ADD_TO_CART":
             return {
                 ...state,
-                cartproducts: [...state.cartproducts, action.payload]
+                cartproducts: action?.payload,
+                totalCartItems: action?.payload?.length,
+                totalMoneyMrp: action?.payload?.reduce((cur, acc) => {
+                    let currNumber = Number(cur?.price);
+                    let accNumber = Number(acc?.price);
+                    currNumber += accNumber;
+                    const totalMoney = Number(currNumber);
+                    console.log('tota', totalMoney)
+                    return totalMoney;
+                }),
+                totaDiscountonMrp: action?.payload?.reduce((cur, acc) => {
+                    let currNumber = Number(cur?.discount);
+                    let accNumber = Number(acc?.discount);
+                    currNumber += accNumber;
+                    const totalDiscount = Number(currNumber);
+                    return totalDiscount;
+                })
             }
 
 
-        case "REMOVE_FROM_CART":
-            return {
-                ...state,
-                cartproducts: state.cartproducts.filter(product => product.id !== action.payload)
-            }
+        // case "REMOVE_FROM_CART":
+        //     return {
+        //         ...state,
+        //         cartproducts: state.cartproducts.filter(product => product.id !== action.payload)
+        //     }
 
         case "ADD TO WISHLIST":
             return {

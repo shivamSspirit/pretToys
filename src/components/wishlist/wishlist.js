@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './wishlist.css'
 
 import CloseIcon from '../../assest/images/svgs/close.svg'
@@ -12,7 +12,7 @@ import { useGlobal } from '../../contexts/globalContext'
 
 function Wishlist() {
     const { wishState, dispatchWish } = useWishList()
-    const { globalStateProperties, setDynamicProperties } = useGlobal();
+    const { setDynamicProperties } = useGlobal();
 
 
     useEffect(() => {
@@ -31,9 +31,9 @@ function Wishlist() {
         })
     }
 
-    const MoveToCart = async (proId) => {
+    // const MoveToCart = async (proId) => {
 
-    }
+    // }
 
 
     return (

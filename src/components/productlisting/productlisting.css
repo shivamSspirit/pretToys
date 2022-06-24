@@ -200,4 +200,6 @@
     font-size: var(--pro-txt-size);
     font-weight: var(--pro-txt-weight);
     color: var(--default-color);
+    text-align: center;
+    text-decoration: none;
 }

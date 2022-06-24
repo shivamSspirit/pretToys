@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './cart.css'
 
-import UserImg from '../../assest/images/jpeg/user.jpg'
+import { useCartActions } from '../../hooks/cartAction'
+import { useWishActions } from '../../hooks/wishAction'
+
+
 import { useCart } from '../../contexts/cart-context';
 
 function Cart() {
-    const { cartState, dispatchCart } = useCart();
+    const { cartState } = useCart();
+
+    const { addToWish } = useWishActions()
+
+    const { removeFromCart,updateExistingProduct } = useCartActions();
+
 
     useEffect(() => {
         if (cartState.cartproducts) {
@@ -13,11 +21,34 @@ function Cart() {
         }
     }, [cartState.cartproducts])
 
+    const removeItemFromCart = async (productId) => {
+        await removeFromCart(productId, () => {
+            console.log('remove product with all its quantity')
+        });
+    }
+
+    const moveToWish = async (product) => {
+        await addToWish(product, () => {
+            console.log("adding product to wishlist")
+        })
+    }
+
+    const updateProductqty = async (productId, type, product) => {
+        if(type==="increment"){
+            const actionInc = {type:type}
+            await updateExistingProduct(productId,actionInc,product)
+        } 
+        if(type==='decrement'){
+            const actionDec =  {type:type}
+            await updateExistingProduct(productId,actionDec,product)
+        }
+    }
+
     return (
         <div>
             <div className="cart-container">
                 <div>
-                    <h2 className="my-cart">My cart(3)</h2>
+                    <h2 className="my-cart">My cart({cartState?.cartproducts?.length})</h2>
 
                     <div className="cart-partition">
 
@@ -33,14 +64,14 @@ function Cart() {
                                             <div className="content-h">
                                                 <div>
                                                     <p className="title-pro-cart">
-                                                     {item.title}
+                                                        {item.title}
                                                     </p>
                                                     <div className="iphone-price">
                                                         <p className="real-price">
                                                             {`Rs ${item.price}`}
                                                         </p>
                                                         <p className="dis-price">
-                                                        {`Rs ${item.discount}`}
+                                                            {`Rs ${item.discount}`}
                                                         </p>
                                                         <p className="dis-per">
                                                             30%
@@ -50,13 +81,13 @@ function Cart() {
                                                         <p className="quant-title">
                                                             Quantity :
                                                         </p>
-                                                        <p className="symbol">-</p>
-                                                        <p className="symbol">{item.quantity}</p>
-                                                        <p className="symbol">+</p>
+                                                        <p onClick={()=>updateProductqty(item?._id,"decrement",item)} className="symbol">-</p>
+                                                        <p className="symbol">{item?.quantity}</p>
+                                                        <p onClick={()=>updateProductqty(item?._id,"increment",item)} className="symbol">+</p>
                                                     </div>
                                                     <div className="btns-cart">
-                                                        <button className="cart-btns">Remove to cart</button>
-                                                        <button className="cart-btns">Add to wishlist</button>
+                                                        <button onClick={() => removeItemFromCart(item?._id)} className="cart-btns">Remove to cart</button>
+                                                        <button onClick={() => moveToWish(item)} className="cart-btns">Add to wishlist</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,10 +108,10 @@ function Cart() {
                                 <div className="charges">
                                     <div className="row-prices">
                                         <p className="row-item">
-                                            Price(2 items)
+                                            Price({`${cartState?.cartproducts?.length}`} items)
                                         </p>
                                         <p className="row-item1">
-                                            Rs.545454
+                                            {`Rs.${cartState?.totalMoneyMrp}`}
                                         </p>
                                     </div>
                                     <div className="row-prices">
@@ -88,7 +119,7 @@ function Cart() {
                                             Discount
                                         </p>
                                         <p className="row-item1">
-                                            Rs.54454
+                                            {`Rs.${cartState?.totaDiscountonMrp}`}
                                         </p>
                                     </div>
                                     <div className="row-prices">
@@ -96,7 +127,7 @@ function Cart() {
                                             Delivery Charges
                                         </p>
                                         <p className="row-item1">
-                                            Rs.5454
+                                            {`Rs.${cartState?.deliveryCahrges}`}
                                         </p>
                                     </div>
                                 </div>
@@ -106,7 +137,7 @@ function Cart() {
                                         Total Amount
                                     </p>
                                     <p className="total-price1">
-                                        Rs.4343444
+                                        {`Rs.${(Number(cartState?.totalMoneyMrp) - Number(cartState?.totaDiscountonMrp)) + (Number(cartState?.deliveryCahrges))}`}
                                     </p>
                                 </div>
                                 <br />

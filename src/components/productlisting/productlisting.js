@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './productlisting.css'
 import { useParams } from 'react-router-dom'
 import { useFilter } from '../../contexts/filter-context'
@@ -9,10 +9,37 @@ import { useCart } from '../../contexts/cart-context'
 import { useWishList } from '../../contexts/wishlist-context'
 import { useGlobal } from '../../contexts/globalContext'
 
-import * as WishAPis from '../../api/wishlist'
-import * as CartApis from '../../api/cart'
+import { useCartActions } from '../../hooks/cartAction'
+import { useWishActions } from '../../hooks/wishAction'
+
+// import * as WishAPis from '../../api/wishlist'
+// import * as CartApis from '../../api/cart'
+
+import { Link } from 'react-router-dom'
 
 import * as ActionTypes from '../../constants/actions'
+
+
+
+// <!-- <script type="text/javascript">
+// function removeFadeOut(el, speed) {
+//     var second = speed / 1000 + "s";
+//     el.addEventListener("click", function () {
+//         el.parentElement.parentElement.parentElement.style.transition = `all ${second} ease-in`;
+//         el.style.opacity = 0.5;
+//         el.parentElement.parentElement.parentElement.style.transform = "translateX(200px)";
+//         setTimeout(() => {
+//             const alertContainer = el.parentElement.parentElement.parentElement;
+//             alertContainer.remove();
+//         }, speed);
+//     });
+// }
+
+// removeFadeOut(document.querySelector(".action"), 2000);
+// </script> -->
+
+
+
 
 // use proxy object object for validation
 // const person = {
@@ -29,10 +56,13 @@ function ProductListing() {
     const [selectedCategory, setSelectedCategoy] = useState(null)
     const [mainProductsss, setmainout] = useState(null);
 
-    const { cartState, dispatchCart } = useCart();
+    const { cartState } = useCart();
     const { filterState, dispatchFilter } = useFilter()
-    const { wishState, dispatchWish } = useWishList();
+    const { wishState } = useWishList();
     const { globalStateProperties, setDynamicProperties } = useGlobal();
+
+    const { postToCart } = useCartActions();
+    const { addToWish, removeFromWish } = useWishActions();
 
 
     const { id } = useParams();
@@ -72,30 +102,34 @@ function ProductListing() {
 
     const handleAdddCart = async (e, proID) => {
         e.preventDefault();
-        const protoaddd = mainProductsss?.find(item => item?.id === proID)
-        const response = await CartApis?.posttocart(protoaddd)
-        console.log(response?.data.cart)
-
-        dispatchCart({
-            type: ActionTypes.Cart.ADD_TO_CART,
-            payload: protoaddd
-        });
-        console.log('add to cart')
-    }
-
-
-    const handleAddToWish = async (e, proWId) => {
-        e.preventDefault();
-        const protoaddd = mainProductsss?.find(item => item?.id === proWId)
-
-        await WishAPis?.postTowish(protoaddd).then(res => {
+        const protoaddd = mainProductsss?.find(item => item?.id === proID);
+        await postToCart(protoaddd, () => {
+            console.log('adding product in cart')
         })
-        await dispatchWish({
-            type: ActionTypes.Wislist.ADD_TO_WISH,
-            payload: protoaddd
-        });
-        console.log('add to wish')
     }
+
+    // const handleAddToWish = async (e, proWId) => {
+    //     e.preventDefault();
+    //     const protoaddd = mainProductsss?.find(item => item?.id === proWId)
+    //     await addToWish(protoaddd, () => {
+    //         console.log('adding product to wishlist')
+    //     })
+    // }
+
+    // wishlist operations
+
+    const isProductInWishlist = async (e, product) => {
+        const filteredproducts = wishState?.wishproducts?.filter(
+            (product) => product._id === product?._id
+        );
+        return filteredproducts.length === 1;
+    };
+
+
+    const handleProductinwishlist = async (product) => {
+        isProductInWishlist(product) ? await removeFromWish(product?._id) :await addToWish(product)
+    }
+
 
 
     const clearAllFilter = () => {
@@ -268,18 +302,18 @@ function ProductListing() {
 
                         <div className="products">
                             {(mainProductsss && finalProducts) && (ifFilterclear ? mainProductsss : finalProducts)?.map((product, idx) => (
-                                <div key={`pro${idx}`} className="product-card0 ecom-card0">
-                                    <div className="img-container-product0 ecom-p0">
-                                        <img className="p-img0" alt="" src={product?.proImg} />
-                                        <div className="badge0">
-                                            <p className="sale">wish</p>
+                                <div key={`pro${idx}`} class="product-card ecom-card0">
+                                    <div class="img-container-product ecom-p0">
+                                        <img class="p-img" alt="" src={product?.proImg} />
+                                        <div class="badge">
+                                            <input onChange={() => handleProductinwishlist(product)} className="heart" type="checkbox" />
+                                            <label for="heart">❤</label>
                                         </div>
                                     </div>
-                                    <div className="card-content-product0">
+                                    <div class="card-content-product">
                                         <h3 className="title0">{product?.title}</h3>
                                         <p className="price-p0">{`€ ${product?.price}`}</p>
-                                        <button onClick={e => handleAdddCart(e, product?.id)} className="btn-product0 ecom-btn-cart">{cartState?.cartproducts?.some(p => p.id === product.id) ? 'Go to hell' : product?.btnTxt}</button>
-                                        <button onClick={e => handleAddToWish(e, product?.id)} className='btn-product0'>Add to wishlist</button>
+                                        {cartState?.cartproducts?.find(item => item?._id === product?._id) ? <Link to={'/cart'} className="btn-product0 ecom-btn-cart">go to cart</Link> : <button onClick={e => handleAdddCart(e, product?.id)} className="btn-product0 ecom-btn-cart">add to cart</button>}
                                     </div>
                                 </div>
                             ))}

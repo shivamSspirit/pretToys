@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../header/header'
+import React, { useEffect } from 'react'
 import './land.css'
 import { useGlobal } from '../../contexts/globalContext'
 

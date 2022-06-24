@@ -18,6 +18,8 @@ export const LoginHandler = async (userLogdata) => {
     try {
         const response = await axios.post(`${baseAuthUrl}/login`, userLogdata);
         localStorage.setItem("token", response.data.encodedToken);
+        localStorage.setItem("authUser",response.data.foundUser._id)
+        console.log('res',response)
         return response;
     } catch (error) {
         console.log(error);

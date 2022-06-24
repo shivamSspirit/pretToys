@@ -18,8 +18,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: shoesImg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -29,8 +29,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: shoesImg,
     ratings: 4,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -40,8 +40,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: shoesImg,
     ratings: 5,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 
   {
@@ -52,8 +52,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: SliperImg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 
   {
@@ -64,8 +64,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: SliperImg,
     ratings: 1,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 
   {
@@ -76,8 +76,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -87,8 +87,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -98,8 +98,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -109,7 +109,7 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 ];
