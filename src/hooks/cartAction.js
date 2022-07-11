@@ -18,7 +18,6 @@ import { useCart } from '../contexts/cart-context';
 export function useCartActions() {
 	const { cartState, dispatchCart } = useCart();
 
-	// const { cartproducts, totaDiscount, totalMoney, totalItems } = cartState;
 
 	async function getCart(callback) {
 		const response = await cartApis?.getCart();
@@ -32,11 +31,12 @@ export function useCartActions() {
 	}
 
 	async function postToCart(data, callback) {
-		const response = await cartApis?.posttocart(data) // data===product
+		const response = await cartApis?.posttocart(data);
 		await dispatchCart({
 			type: ActionTypes?.Cart?.ADD_TO_CART,
 			payload: response?.data?.cart
 		})
+		console.log('money', cartState?.totalMoney)
 		if (callback) {
 			return callback();
 		}
@@ -50,18 +50,19 @@ export function useCartActions() {
 		})
 	}
 
-
-	async function updateExistingProduct(...data) {
+	async function updateExistingProduct(productId, actionobj, product) {
 		let response;
-		if (data.type === 'increment') {
-			response = await cartApis?.productAction(data?.productId, data?.actionInc);
+		if (actionobj?.action?.type === 'increment') {
+			response = await cartApis?.productAction(productId, actionobj);
 		} else {
-			if (data?.product?.quantity === 1) {
-				response = await removeFromCart(data?.product?._id, () => {
+			if (product?.qty === 1) {
+				console.log('hello')
+				response = await removeFromCart(productId, () => {
 					console.log("removing product if quantity is one")
 				})
 			} else {
-				response = await cartApis?.productAction(data?.productId, data?.actionDec);
+				console.log('nahi')
+				response = await cartApis?.productAction(productId, actionobj);
 			}
 		}
 		dispatchCart({
@@ -70,37 +71,16 @@ export function useCartActions() {
 		})
 	}
 
-
-		// To increment or decrement cart quantity
-		// 	const updateQuantity = async (e, product, type, setDisable) => {
-		// 		e.preventDefault();
-		// 		setDisable(true);
-		// 		let response;
-		// 		try {
-		// 		  if (type === "increment")
-		// 			response = await updateQuantityInCart(authToken, product._id, type);
-		// 		  else {
-		// 			if (product.qty === 1)
-		// 			  response = await removeFromCart(authToken, product._id);
-		// 			else
-		// 			  response = await updateQuantityInCart(authToken, product._id, type);
-		// 		  }
-		// 		  dispatch({ type: CART_OPERATION, payload: { cart: response.cart } });
-		// 		} finally {
-		// 		  setDisable(false);
-		// 		}
-		// 	  };
-
-		return {
-			getCart,
-			postToCart,
-			removeFromCart,
-			updateExistingProduct
-		}
-	
+	return {
+		getCart,
+		postToCart,
+		removeFromCart,
+		updateExistingProduct
 	}
 
-	
+}
+
+
 
 
 

@@ -125,14 +125,14 @@ export const updateCartItemHandler = function (schema, request) {
     console.log('req body',JSON.parse(request.requestBody))
     const { action } = JSON.parse(request.requestBody);
     console.log('action',action)
-    if (action.type === "increment") {
+    if (action?.action?.type === "increment") {
       userCart.forEach((product) => {
         if (product._id === productId) {
           product.qty += 1;
           product.updatedAt = formatDate();
         }
       });
-    } else if (action.type === "decrement") {
+    } else if (action?.action?.type === "decrement") {
       userCart.forEach((product) => {
         if (product._id === productId) {
           product.qty -= 1;

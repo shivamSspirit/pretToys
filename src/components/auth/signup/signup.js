@@ -32,6 +32,7 @@ function Signup() {
         e.preventDefault();
         const mainuser = { ...user };
         AuthApis?.signupHandler(mainuser).then(res => {
+            console.log('res from sign up', res?.data?.createdUser)
         })
         navigate('/auth/login')
     }

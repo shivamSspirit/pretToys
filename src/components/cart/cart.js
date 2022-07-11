@@ -1,25 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './cart.css'
 
 import { useCartActions } from '../../hooks/cartAction'
 import { useWishActions } from '../../hooks/wishAction'
-
-
 import { useCart } from '../../contexts/cart-context';
 
 function Cart() {
     const { cartState } = useCart();
-
     const { addToWish } = useWishActions()
-
-    const { removeFromCart,updateExistingProduct } = useCartActions();
-
-
-    useEffect(() => {
-        if (cartState.cartproducts) {
-            console.log('cartstate', cartState.cartproducts)
-        }
-    }, [cartState.cartproducts])
+    const { removeFromCart, updateExistingProduct } = useCartActions();
 
     const removeItemFromCart = async (productId) => {
         await removeFromCart(productId, () => {
@@ -31,16 +20,17 @@ function Cart() {
         await addToWish(product, () => {
             console.log("adding product to wishlist")
         })
+        await removeItemFromCart(product?._id);
     }
 
     const updateProductqty = async (productId, type, product) => {
-        if(type==="increment"){
-            const actionInc = {type:type}
-            await updateExistingProduct(productId,actionInc,product)
-        } 
-        if(type==='decrement'){
-            const actionDec =  {type:type}
-            await updateExistingProduct(productId,actionDec,product)
+        if (type === "increment") {
+            const actionInc = { action: { type: type } }
+            await updateExistingProduct(productId, actionInc, product)
+        }
+        if (type === 'decrement') {
+            const actionDec = { action: { type: type } }
+            await updateExistingProduct(productId, actionDec, product)
         }
     }
 
@@ -48,14 +38,11 @@ function Cart() {
         <div>
             <div className="cart-container">
                 <div>
-                    <h2 className="my-cart">My cart({cartState?.cartproducts?.length})</h2>
-
+                    <h2 className="my-cart">My cart({cartState?.cartproducts?.length ? cartState?.cartproducts?.length : 0})</h2>
                     <div className="cart-partition">
-
                         <div className="cart-products">
                             <div className="align-card">
-                                {cartState.cartproducts && cartState.cartproducts?.map((item, idx) => (
-
+                                {cartState?.cartproducts && cartState?.cartproducts?.map((item, idx) => (
                                     <div key={`c-card${idx}`} className="card-container-horizontal cart-pro">
                                         <div className="img-container-h">
                                             <img className="img-h" alt="" src={item.proImg} />
@@ -81,9 +68,10 @@ function Cart() {
                                                         <p className="quant-title">
                                                             Quantity :
                                                         </p>
-                                                        <p onClick={()=>updateProductqty(item?._id,"decrement",item)} className="symbol">-</p>
-                                                        <p className="symbol">{item?.quantity}</p>
-                                                        <p onClick={()=>updateProductqty(item?._id,"increment",item)} className="symbol">+</p>
+                                                        {item?.qty === 1 ? <p onClick={() => removeItemFromCart(item?._id)} className="symbol">!r</p> :
+                                                            <p onClick={() => updateProductqty(item?._id, "decrement", item)} className="symbol">-</p>}
+                                                        <p className="symbol">{item?.qty}</p>
+                                                        <p onClick={() => updateProductqty(item?._id, "increment", item)} className="symbol">+</p>
                                                     </div>
                                                     <div className="btns-cart">
                                                         <button onClick={() => removeItemFromCart(item?._id)} className="cart-btns">Remove to cart</button>
@@ -93,13 +81,10 @@ function Cart() {
                                             </div>
                                         </div>
                                     </div>
-
                                 ))}
-
                             </div>
                         </div>
                         <div className="cart-price">
-
                             <div className="price-details">
                                 <h3 className="p-detail-title">
                                     Price Details
@@ -111,15 +96,7 @@ function Cart() {
                                             Price({`${cartState?.cartproducts?.length}`} items)
                                         </p>
                                         <p className="row-item1">
-                                            {`Rs.${cartState?.totalMoneyMrp}`}
-                                        </p>
-                                    </div>
-                                    <div className="row-prices">
-                                        <p className="row-item">
-                                            Discount
-                                        </p>
-                                        <p className="row-item1">
-                                            {`Rs.${cartState?.totaDiscountonMrp}`}
+                                            {`Rs.${cartState?.totalMoney}`}
                                         </p>
                                     </div>
                                     <div className="row-prices">
@@ -127,7 +104,7 @@ function Cart() {
                                             Delivery Charges
                                         </p>
                                         <p className="row-item1">
-                                            {`Rs.${cartState?.deliveryCahrges}`}
+                                            {`Rs.${cartState?.deleveryCharges}`}
                                         </p>
                                     </div>
                                 </div>
@@ -137,15 +114,13 @@ function Cart() {
                                         Total Amount
                                     </p>
                                     <p className="total-price1">
-                                        {`Rs.${(Number(cartState?.totalMoneyMrp) - Number(cartState?.totaDiscountonMrp)) + (Number(cartState?.deliveryCahrges))}`}
+                                        {`Rs.${(Number(cartState?.totalMoney)) + (Number(cartState?.deleveryCharges))}`}
                                     </p>
                                 </div>
                                 <br />
                                 <button className="btn outline-primary cart-p-btn">Checkout</button>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

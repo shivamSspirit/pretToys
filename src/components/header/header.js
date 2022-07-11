@@ -34,7 +34,7 @@ function Header() {
                     </div>
                     <div className="search-bar">
                         <input className="search" placeholder="Search for brands" type="text" name="search" />
-                        <img className="search-icon" src={searchIcon} alt="search" />
+                        {/* <img className="search-icon" src={searchIcon} alt="search" /> */}
                     </div>
                     <div className="socials-ecom">
                         <span>

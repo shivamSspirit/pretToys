@@ -203,3 +203,16 @@
     text-align: center;
     text-decoration: none;
 }
+
+.hert{
+    max-width: 29px;
+    position: relative;
+    max-height: 29px;
+    top: -18px;
+    fill: blue;
+}
+
+.newbadge{
+    width: 3rem !important;
+    height: 3rem !important;
+}

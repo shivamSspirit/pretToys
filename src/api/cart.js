@@ -11,7 +11,6 @@ export async function getCart() {
             }
         });
         return response;
-
     } catch (error) {
         console.log(error)
     }
@@ -39,7 +38,6 @@ export async function posttocart(product) {
 
 // remove from cart
 
-
 export async function removefromcart(productID) {
     try {
         const response = await axios.delete(`${cartUrl}/${productID}`, {
@@ -47,6 +45,7 @@ export async function removefromcart(productID) {
                 authorization: localStorage.getItem('token')
             }
         });
+        console.log('res',response)
         return response;
     } catch (error) {
         console.log(error)
@@ -56,11 +55,12 @@ export async function removefromcart(productID) {
 
 // increment and decrement in product
 
-export async function productAction(productID, actionObj) {
-    console.log('ooooo',actionObj)
+export async function productAction(productID, action) {
+    console.log('ooooo', action)
     try {
-        const response = await axios.post(`${cartUrl}/${productID}`, {actionObj},
+        const response = await axios.post(`${cartUrl}/${productID}`, { action },
             { headers: { authorization: localStorage.getItem('token') } });
+            console.log('res',response)
         return response;
     } catch (error) {
         console.log(error)

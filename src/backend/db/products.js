@@ -9,6 +9,24 @@ import shoesImg from '../../assest/images/jpeg/adidasDon.webp'
  * You can add products of your wish with different attributes
  * */
 
+//  {
+//   _id: "449a8cbb-f45b-4b84-8f62-15af8bb26ef2",
+//   title: "Red Velvet Tall Cake",
+//   imageUrl:
+//     "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014954/ecommerce/redvelvetcake3.webp",
+//   rating: "4",
+//   totalRatings: 12,
+//   price: "600",
+//   categoryName: "Red Velvet",
+//   isOutOfStock: false,
+//   offerPercentage: 0,
+//   item: "Cake",
+//   weight: "1 kg",
+//   isBestSeller: false,
+//   priceCategory: "price500To1000",
+// },
+
+
 export const products = [
   {
     _id: uuid(),

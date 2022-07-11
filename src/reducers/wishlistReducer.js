@@ -11,16 +11,6 @@ export function WishListReducer(state = wishInitialState, action) {
                 wishproducts: action?.payload,
                 wishCount: action?.payload?.length
             }
-        // case "REMOVE_FROM_WISH":
-        //     return {
-        //         ...state,
-        //         wishproducts: state.wishproducts.filter((r) => r.id !== action.payload)
-        //     }
-
-        case "MOVE_TO_CART":
-            return {
-
-            }
     }
 }
 

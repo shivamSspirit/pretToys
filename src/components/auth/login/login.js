@@ -13,16 +13,16 @@ function Login() {
     // const [logggedUser, setLoggedUSer] = useState(null);
 
     const navigate = useNavigate();
-    const { authToken, setAuthToken} = useAuth();
+    const { authToken, setAuthToken } = useAuth();
     const { setDynamicProperties } = useGlobal();
 
     console.log('dd', authToken);
 
-    useEffect(() => {
-        if (authToken) {
-            navigate('/')
-        }
-    }, [authToken])
+    // useEffect(() => {
+    //     if (authToken) {
+    //         navigate('/')
+    //     }
+    // }, [authToken])
 
     const handleUserLogin = (e) => {
         const val = e.target.name;
@@ -45,6 +45,7 @@ function Login() {
             setAuthToken(res?.data?.encodedToken)
             setDynamicProperties('currentUser', res?.data?.foundUser)
         });
+        navigate('/')
     }
 
 

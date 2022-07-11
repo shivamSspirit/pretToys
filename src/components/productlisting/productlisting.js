@@ -1,55 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import './productlisting.css'
-import { useParams } from 'react-router-dom'
-import { useFilter } from '../../contexts/filter-context'
+
+import HeartIcon from '../../assest/images/svgs/blank.svg'
+
+import FilledIcon from '../../assest/images/svgs/filled.svg'
+
+import * as ActionTypes from '../../constants/actions'
 import * as productApi from '../../api/productApi'
 import * as FilterHelper from '../../utils/helper'
 import * as CategoriesAPis from '../../api/category'
+
 import { useCart } from '../../contexts/cart-context'
 import { useWishList } from '../../contexts/wishlist-context'
 import { useGlobal } from '../../contexts/globalContext'
-
+import { useFilter } from '../../contexts/filter-context'
 import { useCartActions } from '../../hooks/cartAction'
 import { useWishActions } from '../../hooks/wishAction'
 
-// import * as WishAPis from '../../api/wishlist'
-// import * as CartApis from '../../api/cart'
-
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-import * as ActionTypes from '../../constants/actions'
-
-
-
-// <!-- <script type="text/javascript">
-// function removeFadeOut(el, speed) {
-//     var second = speed / 1000 + "s";
-//     el.addEventListener("click", function () {
-//         el.parentElement.parentElement.parentElement.style.transition = `all ${second} ease-in`;
-//         el.style.opacity = 0.5;
-//         el.parentElement.parentElement.parentElement.style.transform = "translateX(200px)";
-//         setTimeout(() => {
-//             const alertContainer = el.parentElement.parentElement.parentElement;
-//             alertContainer.remove();
-//         }, speed);
-//     });
-// }
-
-// removeFadeOut(document.querySelector(".action"), 2000);
-// </script> -->
-
-
-
-
-// use proxy object object for validation
-// const person = {
-//     name: "John Doe",
-//     age: 42,
-//     nationality: "American"
-//   };
-//Reflect.get() and Reflect.set()
-//obj[prop] = value
-//   const personProxy = new Proxy(person, {});
 
 function ProductListing() {
     const [ifFilterclear, setIfFilterclear] = useState(false);
@@ -63,7 +33,6 @@ function ProductListing() {
 
     const { postToCart } = useCartActions();
     const { addToWish, removeFromWish } = useWishActions();
-
 
     const { id } = useParams();
 
@@ -107,30 +76,6 @@ function ProductListing() {
             console.log('adding product in cart')
         })
     }
-
-    // const handleAddToWish = async (e, proWId) => {
-    //     e.preventDefault();
-    //     const protoaddd = mainProductsss?.find(item => item?.id === proWId)
-    //     await addToWish(protoaddd, () => {
-    //         console.log('adding product to wishlist')
-    //     })
-    // }
-
-    // wishlist operations
-
-    const isProductInWishlist = async (e, product) => {
-        const filteredproducts = wishState?.wishproducts?.filter(
-            (product) => product._id === product?._id
-        );
-        return filteredproducts.length === 1;
-    };
-
-
-    const handleProductinwishlist = async (product) => {
-        isProductInWishlist(product) ? await removeFromWish(product?._id) :await addToWish(product)
-    }
-
-
 
     const clearAllFilter = () => {
         console.log('clear')
@@ -299,15 +244,15 @@ function ProductListing() {
 
                     <div className="parts-2">
                         <h2 className="part-2-head">Showing All Product</h2>
-
                         <div className="products">
                             {(mainProductsss && finalProducts) && (ifFilterclear ? mainProductsss : finalProducts)?.map((product, idx) => (
                                 <div key={`pro${idx}`} class="product-card ecom-card0">
                                     <div class="img-container-product ecom-p0">
                                         <img class="p-img" alt="" src={product?.proImg} />
-                                        <div class="badge">
-                                            <input onChange={() => handleProductinwishlist(product)} className="heart" type="checkbox" />
-                                            <label for="heart">❤</label>
+                                        <div class="badge newbadge">
+                                            <span>
+                                                {wishState?.wishproducts?.find(item => item?._id === product?._id)?  <img onClick={()=>removeFromWish(product?._id)} className='hert' src={FilledIcon} alt='heart' />:  <img onClick={()=>addToWish(product)} className='hert' src={HeartIcon} alt='heart' />}  
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="card-content-product">
