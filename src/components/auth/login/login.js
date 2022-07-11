@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './login.css'
 import * as AuthApis from '../../../api/authApi'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../../contexts/globalContext'
+import { useAuth } from '../../../contexts/auth-context'
 import { useGlobal } from '../../../contexts/globalContext'
 
 function Login() {
@@ -10,18 +10,19 @@ function Login() {
         email: '',
         password: ''
     })
-    const [logggedUser, setLoggedUSer] = useState(null);
+    // const [logggedUser, setLoggedUSer] = useState(null);
 
     const navigate = useNavigate();
-    const authContext = useAuth(logggedUser);
+    const { authToken, setAuthToken } = useAuth();
     const { setDynamicProperties } = useGlobal();
 
+    console.log('dd', authToken);
 
-    useEffect(() => {
-        if (authContext) {
-            navigate('/')
-        }
-    }, [authContext])
+    // useEffect(() => {
+    //     if (authToken) {
+    //         navigate('/')
+    //     }
+    // }, [authToken])
 
     const handleUserLogin = (e) => {
         const val = e.target.name;
@@ -37,13 +38,14 @@ function Login() {
         }
     }
 
-    const handleLogSubmit = (e) => {
+    const handleLogSubmit = async (e) => {
         e.preventDefault();
         const mainLog = { ...user };
-        AuthApis?.LoginHandler(mainLog)?.then(async (res) => {
-            setLoggedUSer(res?.data?.foundUser);
-            await setDynamicProperties('currentUser', res?.data?.foundUser)
+        await AuthApis?.LoginHandler(mainLog)?.then((res) => {
+            setAuthToken(res?.data?.encodedToken)
+            setDynamicProperties('currentUser', res?.data?.foundUser)
         });
+        navigate('/')
     }
 
 

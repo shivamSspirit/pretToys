@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from '../components/header/header'
 import Wishlist from '../components/wishlist/wishlist'
+import '../assest/css/pages.css'
 
 function WishlistPage() {
   return (
-    <div>
+    <div className='sectionContainer'>
       <Header/>
       <Wishlist/>
     </div>

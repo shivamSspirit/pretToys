@@ -62,6 +62,7 @@ export const loginHandler = function (schema, request) {
   const { email, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ email });
+    console.log('user',foundUser)
     if (!foundUser) {
       return new Response(
         404,
@@ -70,6 +71,7 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === foundUser.password) {
+      console.log('hre')
       const encodedToken = sign(
         { _id: foundUser._id, email },
         process.env.REACT_APP_JWT_SECRET

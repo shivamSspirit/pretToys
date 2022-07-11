@@ -3,6 +3,10 @@
 
 .wish-container {
     background-color: var(--default-color);
+    width: 100%;
+    min-height: 94vh;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
 }
 
 .wish-search {

@@ -1,39 +1,38 @@
-import React, { useEffect, useContext, useReducer, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './productlisting.css'
-import { useParams } from 'react-router-dom'
-import { useFilter } from '../../contexts/filter-context'
+
+import HeartIcon from '../../assest/images/svgs/blank.svg'
+
+import FilledIcon from '../../assest/images/svgs/filled.svg'
+
+import * as ActionTypes from '../../constants/actions'
 import * as productApi from '../../api/productApi'
 import * as FilterHelper from '../../utils/helper'
 import * as CategoriesAPis from '../../api/category'
+
 import { useCart } from '../../contexts/cart-context'
 import { useWishList } from '../../contexts/wishlist-context'
 import { useGlobal } from '../../contexts/globalContext'
+import { useFilter } from '../../contexts/filter-context'
+import { useCartActions } from '../../hooks/cartAction'
+import { useWishActions } from '../../hooks/wishAction'
 
-import * as WishAPis from '../../api/wishlist'
-import * as CartApis from '../../api/cart'
+import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-import * as ActionTypes from '../../constants/actions'
-
-// use proxy object object for validation
-// const person = {
-//     name: "John Doe",
-//     age: 42,
-//     nationality: "American"
-//   };
-//Reflect.get() and Reflect.set()
-//obj[prop] = value
-//   const personProxy = new Proxy(person, {});
 
 function ProductListing() {
     const [ifFilterclear, setIfFilterclear] = useState(false);
     const [selectedCategory, setSelectedCategoy] = useState(null)
     const [mainProductsss, setmainout] = useState(null);
 
-    const { cartState, dispatchCart } = useCart();
+    const { cartState } = useCart();
     const { filterState, dispatchFilter } = useFilter()
-    const { wishState, dispatchWish } = useWishList();
+    const { wishState } = useWishList();
     const { globalStateProperties, setDynamicProperties } = useGlobal();
 
+    const { postToCart } = useCartActions();
+    const { addToWish, removeFromWish } = useWishActions();
 
     const { id } = useParams();
 
@@ -72,31 +71,11 @@ function ProductListing() {
 
     const handleAdddCart = async (e, proID) => {
         e.preventDefault();
-        const protoaddd = mainProductsss?.find(item => item?.id === proID)
-        const response = await CartApis?.posttocart(protoaddd)
-        console.log(response?.data.cart)
-
-        dispatchCart({
-            type: ActionTypes.Cart.ADD_TO_CART,
-            payload: protoaddd
-        });
-        console.log('add to cart')
-    }
-
-
-    const handleAddToWish = async (e, proWId) => {
-        e.preventDefault();
-        const protoaddd = mainProductsss?.find(item => item?.id === proWId)
-
-        await WishAPis?.postTowish(protoaddd).then(res => {
+        const protoaddd = mainProductsss?.find(item => item?.id === proID);
+        await postToCart(protoaddd, () => {
+            console.log('adding product in cart')
         })
-        await dispatchWish({
-            type: ActionTypes.Wislist.ADD_TO_WISH,
-            payload: protoaddd
-        });
-        console.log('add to wish')
     }
-
 
     const clearAllFilter = () => {
         console.log('clear')
@@ -265,21 +244,21 @@ function ProductListing() {
 
                     <div className="parts-2">
                         <h2 className="part-2-head">Showing All Product</h2>
-
                         <div className="products">
                             {(mainProductsss && finalProducts) && (ifFilterclear ? mainProductsss : finalProducts)?.map((product, idx) => (
-                                <div key={`pro${idx}`} className="product-card0 ecom-card0">
-                                    <div className="img-container-product0 ecom-p0">
-                                        <img className="p-img0" alt="" src={product?.proImg} />
-                                        <div className="badge0">
-                                            <p className="sale">wish</p>
+                                <div key={`pro${idx}`} class="product-card ecom-card0">
+                                    <div class="img-container-product ecom-p0">
+                                        <img class="p-img" alt="" src={product?.proImg} />
+                                        <div class="badge newbadge">
+                                            <span>
+                                                {wishState?.wishproducts?.find(item => item?._id === product?._id)?  <img onClick={()=>removeFromWish(product?._id)} className='hert' src={FilledIcon} alt='heart' />:  <img onClick={()=>addToWish(product)} className='hert' src={HeartIcon} alt='heart' />}  
+                                            </span>
                                         </div>
                                     </div>
-                                    <div className="card-content-product0">
+                                    <div class="card-content-product">
                                         <h3 className="title0">{product?.title}</h3>
                                         <p className="price-p0">{`€ ${product?.price}`}</p>
-                                        <button onClick={e => handleAdddCart(e, product?.id)} className="btn-product0 ecom-btn-cart">{cartState?.cartproducts?.some(p => p.id === product.id) ? 'Go to hell' : product?.btnTxt}</button>
-                                        <button onClick={e => handleAddToWish(e, product?.id)} className='btn-product0'>Add to wishlist</button>
+                                        {cartState?.cartproducts?.find(item => item?._id === product?._id) ? <Link to={'/cart'} className="btn-product0 ecom-btn-cart">go to cart</Link> : <button onClick={e => handleAdddCart(e, product?.id)} className="btn-product0 ecom-btn-cart">add to cart</button>}
                                     </div>
                                 </div>
                             ))}

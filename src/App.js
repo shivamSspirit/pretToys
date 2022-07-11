@@ -5,20 +5,23 @@ import GlobalContext from "./contexts/globalContext";
 import { WishProvider } from "./contexts/wishlist-context";
 import { FilterProvider } from "./contexts/filter-context";
 import { CartProvider } from "./contexts/cart-context";
+import { AuthProvider } from "./contexts/auth-context";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <GlobalContext>
-        <CartProvider>
-          <WishProvider>
-            <FilterProvider>
-                <AllRoute />
-            </FilterProvider>
-          </WishProvider>
-          </CartProvider>
-        </GlobalContext>
+        <AuthProvider>
+          <GlobalContext>
+            <CartProvider>
+              <WishProvider>
+                <FilterProvider>
+                  <AllRoute />
+                </FilterProvider>
+              </WishProvider>
+            </CartProvider>
+          </GlobalContext>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

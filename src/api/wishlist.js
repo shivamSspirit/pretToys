@@ -1,6 +1,4 @@
 import axios from 'axios'
-
-const encodedToken = localStorage.getItem('token')
 const wishlistUrl = '/api/user/wishlist';
 
 export async function getWishlist() {

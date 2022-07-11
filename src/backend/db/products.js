@@ -9,6 +9,24 @@ import shoesImg from '../../assest/images/jpeg/adidasDon.webp'
  * You can add products of your wish with different attributes
  * */
 
+//  {
+//   _id: "449a8cbb-f45b-4b84-8f62-15af8bb26ef2",
+//   title: "Red Velvet Tall Cake",
+//   imageUrl:
+//     "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014954/ecommerce/redvelvetcake3.webp",
+//   rating: "4",
+//   totalRatings: 12,
+//   price: "600",
+//   categoryName: "Red Velvet",
+//   isOutOfStock: false,
+//   offerPercentage: 0,
+//   item: "Cake",
+//   weight: "1 kg",
+//   isBestSeller: false,
+//   priceCategory: "price500To1000",
+// },
+
+
 export const products = [
   {
     _id: uuid(),
@@ -18,8 +36,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: shoesImg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -29,8 +47,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: shoesImg,
     ratings: 4,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -40,8 +58,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: shoesImg,
     ratings: 5,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 
   {
@@ -52,8 +70,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: SliperImg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 
   {
@@ -64,8 +82,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: SliperImg,
     ratings: 1,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 
   {
@@ -76,8 +94,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -87,8 +105,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -98,8 +116,8 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
   {
     _id: uuid(),
@@ -109,7 +127,7 @@ export const products = [
     btnTxt: "Addtocart",
     proImg: Jaketimg,
     ratings: 2,
-    quantity:1,
-    discount:"1278"
+    qty: 1,
+    discount: "1278"
   },
 ];

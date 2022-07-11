@@ -34,6 +34,7 @@ export const getCartItemsHandler = function (schema, request) {
 
 export const addItemToCartHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
+  console.log('useris',userId)
   try {
     if (!userId) {
       return new Response(
@@ -46,6 +47,7 @@ export const addItemToCartHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { product } = JSON.parse(request.requestBody);
+  
 
     userCart.push({
       ...product,
@@ -119,15 +121,18 @@ export const updateCartItemHandler = function (schema, request) {
       );
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
+    console.log('usercart',userCart)
+    console.log('req body',JSON.parse(request.requestBody))
     const { action } = JSON.parse(request.requestBody);
-    if (action.type === "increment") {
+    console.log('action',action)
+    if (action?.action?.type === "increment") {
       userCart.forEach((product) => {
         if (product._id === productId) {
           product.qty += 1;
           product.updatedAt = formatDate();
         }
       });
-    } else if (action.type === "decrement") {
+    } else if (action?.action?.type === "decrement") {
       userCart.forEach((product) => {
         if (product._id === productId) {
           product.qty -= 1;

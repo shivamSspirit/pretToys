@@ -1,19 +1,16 @@
 import axios from 'axios'
-
-const encodedToken = localStorage.getItem('token')
 const cartUrl = '/api/user/cart';
 
 // get cart
 
 export async function getCart() {
     try {
-        const response = await axios.get(cartUrl,{
-            headers:{
-                authorization:localStorage.getItem('token')
+        const response = await axios.get(cartUrl, {
+            headers: {
+                authorization: localStorage.getItem('token')
             }
         });
         return response;
-   
     } catch (error) {
         console.log(error)
     }
@@ -21,18 +18,18 @@ export async function getCart() {
 
 // post  to  cart
 
-export async function posttocart(product){
+export async function posttocart(product) {
     try {
-        const response = await axios.post(cartUrl,{
-            data:product
+        const response = await axios.post(cartUrl, {
+            product: product
         },
-        {
-            headers:{
-                authorization:localStorage.getItem('token')
+            {
+                headers: {
+                    authorization: localStorage.getItem('token')
+                }
             }
-        }
         );
-        return response; 
+        return response;
     } catch (error) {
         console.log(error)
     }
@@ -41,14 +38,14 @@ export async function posttocart(product){
 
 // remove from cart
 
-
-export async function removefromcart(productID){
+export async function removefromcart(productID) {
     try {
-        const response = await axios.delete(`${cartUrl}/${productID}`,{
-            headers:{
-                authorization:localStorage.getItem('token')
+        const response = await axios.delete(`${cartUrl}/${productID}`, {
+            headers: {
+                authorization: localStorage.getItem('token')
             }
         });
+        console.log('res',response)
         return response;
     } catch (error) {
         console.log(error)
@@ -58,16 +55,13 @@ export async function removefromcart(productID){
 
 // increment and decrement in product
 
-export async function productAction(productID,actionObj){
+export async function productAction(productID, action) {
+    console.log('ooooo', action)
     try {
-        const response = await axios.post(`${cartUrl}/${productID}`,{data:actionObj},
-        {
-         headers:{
-                authorization:localStorage.getItem('token')
-            }
-        }
-        );
-        return response; 
+        const response = await axios.post(`${cartUrl}/${productID}`, { action },
+            { headers: { authorization: localStorage.getItem('token') } });
+            console.log('res',response)
+        return response;
     } catch (error) {
         console.log(error)
     }

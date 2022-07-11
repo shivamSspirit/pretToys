@@ -62,7 +62,7 @@
     flex-basis: 50%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     cursor: pointer;
 }
 
@@ -200,4 +200,19 @@
     font-size: var(--pro-txt-size);
     font-weight: var(--pro-txt-weight);
     color: var(--default-color);
+    text-align: center;
+    text-decoration: none;
+}
+
+.hert{
+    max-width: 29px;
+    position: relative;
+    max-height: 29px;
+    top: -18px;
+    fill: blue;
+}
+
+.newbadge{
+    width: 3rem !important;
+    height: 3rem !important;
 }

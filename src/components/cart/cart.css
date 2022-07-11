@@ -160,8 +160,8 @@
 .row-item1 {
 	flex-basis: 50%;
 	display: flex;
-	justify-content: end;
-	justify-items: end;
+	justify-content: flex-end;
+	justify-items: flex-end;
 }
 
 .total {
@@ -178,8 +178,8 @@
 .total-price1 {
 	flex-basis: 50%;
 	display: flex;
-	justify-content: end;
-	justify-items: end;
+	justify-content: flex-end;
+	justify-items: flex-end;
 }
 
 .cart-p-btn {

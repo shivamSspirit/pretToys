@@ -5,7 +5,7 @@ import { wishInitialState, WishListReducer } from "../reducers/wishlistReducer";
 export const WishContext = createContext();
 
 export const WishProvider = ({ children }) => {
-  const [wishState, dispatchWish] = useReducer(wishInitialState,WishListReducer);
+  const [wishState, dispatchWish] = useReducer(WishListReducer,wishInitialState);
 
   let contextValue = {
     wishState,
