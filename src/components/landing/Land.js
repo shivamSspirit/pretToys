@@ -23,11 +23,11 @@ function Land() {
             <div className="landing-page">
                 <div className="main-content">
                     <div className="land-img-container">
-                        <img className="land-img" alt="land" src={landImg} />
+                        {/* <img className="land-img" alt="land" src={landImg} /> */}
                         <div className="overtoimg">
                             <p className="txt-0">Clearance Sale</p>
                             <p className="txt-0">50% OFF</p>
-                            <Link to="#all-product" className="btn btn-primary land-b">BROWSE PRODUCTS</Link>
+                            <Link to="#all-product" className="land-b">BROWSE PRODUCTS</Link>
                         </div>
                     </div>
                     <div className="main-sec-two">

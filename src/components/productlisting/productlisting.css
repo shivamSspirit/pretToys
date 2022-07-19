@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     gap: .3rem;
+    /* height: 82vh; */
+    height: 100vh;
 }
 
 .product-search {
@@ -14,7 +16,7 @@
 
 .parts {
     max-width: 100vw;
-    max-height: 89.60vh;
+    height: 100%;
     display: flex;
 }
 
@@ -186,6 +188,7 @@
 .products {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .ecom-card0 {
@@ -204,15 +207,39 @@
     text-decoration: none;
 }
 
-.hert{
+.hert {
     max-width: 29px;
     position: relative;
     max-height: 29px;
-    top: -18px;
+    top: 3px;
+    left: 33px;
     fill: blue;
 }
 
-.newbadge{
+.newbadge {
     width: 3rem !important;
     height: 3rem !important;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .parts-1 {
+        display: none;
+    }
+
+    .slider{
+        width: 3rem;
+    }
+
+    .parts-2 {
+        flex-basis: 100%;
+        background-color: var(--default-color);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        max-width: 100vw;
+    }
+
 }

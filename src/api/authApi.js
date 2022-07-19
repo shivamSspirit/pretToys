@@ -17,8 +17,9 @@ export const signupHandler = async (userData) => {
 export const LoginHandler = async (userLogdata) => {
     try {
         const response = await axios.post(`${baseAuthUrl}/login`, userLogdata);
+        console.log('ddd',response?.data)
         localStorage.setItem("token", response.data.encodedToken);
-        localStorage.setItem("authUser",response.data.foundUser._id)
+        localStorage.setItem("authUser",response.data.foundUser.firstName)
         console.log('res',response)
         return response;
     } catch (error) {

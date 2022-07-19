@@ -19,17 +19,44 @@ body {
 .icon-container {
 	flex-basis: 10%;
 	display: flex;
-	padding-left: 2rem;
 }
 
 .img-link {
 	margin: 0 auto;
+	display: flex;
+    gap: 0.44rem;
 }
+
+.admin-icon{
+	border:grey 2px solid;
+    padding: 0.4rem;
+    border-radius: 60px;
+}
+
+.user-name{
+	align-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.account-link{
+    display: flex;
+    gap: 0.44rem;
+	text-decoration: none;
+	font-size: large;
+	font-weight: 590;
+	color: purple;
+}
+
+
 
 .icon {
 	width: 3rem;
 	height: 3rem;
 	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	align-content: center;
 }
 
 .ecom-nav {
@@ -94,12 +121,104 @@ body {
 	max-height: 2rem;
 }
 
-@media only screen and (max-width: 530px) {
-	.home {
+@media only screen and (max-width: 385px) {
+	.ecom-nav{
 		display: none;
 	}
 
-	.document {
-		display: none;
+	.search-bar {
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+		align-items: end;
+		position: absolute;
+		top: 4rem;
+		width: 100%;
+		left: 0px;
+	}
+
+	.ecom-header {
+		width: 100vw;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		height: 20vh;
+		background-color: var(--default-color);
+		color: var(--primary-color);
+		padding: 0rem;
+		position: sticky;
+		justify-content: space-around;
+	}
+
+	.search{
+		width: 90%;
+		border-radius: 50px;
+		outline: none;
+	}
+
+	.icon-container{
+		padding-left: 0;
+		align-content: flex-start;
+		align-items: flex-start;
+	}
+
+	.socials-ecom {
+		margin-top: .5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		align-content: flex-start;
 	}
 }
+
+@media only screen and (max-width: 825px) {
+	.ecom-nav{
+		display: none;
+	}
+
+	.search-bar {
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+		align-items: end;
+		position: absolute;
+		top: 4rem;
+		width: 100%;
+		left: 0px;
+	}
+
+	.ecom-header {
+		width: 100vw;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		height: 19vh;
+		background-color: var(--default-color);
+		color: var(--primary-color);
+		padding: 0rem;
+		position: sticky;
+		justify-content: space-around;
+	}
+
+	.search{
+		width: 90%;
+		border-radius: 50px;
+		outline: none;
+	}
+
+	.icon-container{
+		padding-left: 0;
+		align-content: flex-start;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	.socials-ecom {
+		margin-top: .5rem;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		align-content: flex-start;
+	}
+}
+
