@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import './land.css'
 import { useGlobal } from '../../contexts/globalContext'
+import { useNavigate } from 'react-router-dom'
 
 import appleImage from '../../assest/images/jpeg/apple-iphone-13.jpg'
 import landImg from '../../assest/images/jpeg/land (1).jpg'
@@ -9,14 +10,21 @@ import * as CategoryApis from '../../api/category'
 import { Link } from 'react-router-dom'
 
 function Land() {
- 
-    const {	globalStateProperties,setDynamicProperties} = useGlobal();
+
+    const navigate = useNavigate()
+    const { category, setCategory, currentCategory, setCurrentCategory } = useGlobal();
 
     useEffect(() => {
         CategoryApis?.getCategoryList().then(res => {
-            setDynamicProperties('gVideoCategory',res?.data?.categories)
+            setCategory(res?.data?.categories)
         })
     }, [])
+
+    const movetoProductlisting = async (categoryID) => {
+        const res = await CategoryApis?.getSingleCategory(categoryID);
+        await setCurrentCategory(res?.data?.category?.categoryName);
+        navigate('/products')
+    }
 
     return (
         <div>
@@ -27,7 +35,7 @@ function Land() {
                         <div className="overtoimg">
                             <p className="txt-0">Clearance Sale</p>
                             <p className="txt-0">50% OFF</p>
-                            <Link to="#all-product" className="land-b">BROWSE PRODUCTS</Link>
+                            <Link to={'/products'} className="land-b">BROWSE PRODUCTS</Link>
                         </div>
                     </div>
                     <div className="main-sec-two">
@@ -35,11 +43,11 @@ function Land() {
                             Featured Categories
                         </h2>
                         <div className="sec-wrap">
-                            {globalStateProperties?.gVideoCategory && globalStateProperties?.gVideoCategory.map((item, idx) => (
+                            {category && category.map((item, idx) => (
                                 <div key={`cate${idx}`}>
                                     <div className="product-card-container">
                                         <div className="img-container-p">
-                                            <img className="img-p" alt="" src={appleImage} />
+                                            <img className="img-p" alt="" src={item?.imgthumbnail} />
                                         </div>
                                         <div className="card-content">
                                             <div className="colors">
@@ -49,17 +57,10 @@ function Land() {
                                                 <div className="color"></div>
                                             </div>
                                             <div className="content">
-                                                {/* <p className="status">New</p> */}
-                                                <Link to={`/products/${item?.id}`} className="name">{item?.categoryName}</Link>
-                                                <p style={{
-                                                      whiteSpace: 'nowrap', 
-                                                      overflow: 'hidden',
-                                                      textOverflow: 'ellipsis'
-                                                }} className="info">
-                                                  {item?.description}
+                                                <button onClick={() => movetoProductlisting(item?.id)} className="name btn">{item?.categoryName}</button>
+                                                <p className="info">
+                                                    {item?.description}
                                                 </p>
-                                                {/* <p className="price">From 1lack</p> */}
-                                                <button className="btn">Buy</button>
                                             </div>
                                         </div>
                                     </div>

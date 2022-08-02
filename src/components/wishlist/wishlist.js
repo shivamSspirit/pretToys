@@ -48,7 +48,7 @@ function Wishlist() {
                         {wishState?.wishproducts && wishState?.wishproducts?.map((product, idx) => (
                             <div key={`wish${idx}`} className="action-card">
                                 <div className="img-container-product0 wish-strech">
-                                    <img className="p-img0" alt="" src={Jaket} />
+                                    <img className="p-img0" alt="" src={product?.proImg} />
                                     <div className="badge1">
                                         <span onClick={() => handleRemove(product?._id)} className="action"><img src={CloseIcon}
                                             className="img-action" alt="" /></span>

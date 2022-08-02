@@ -1,6 +1,8 @@
 import React from 'react'
 import './cart.css'
 
+import { Link } from 'react-router-dom'
+
 import { useCartActions } from '../../hooks/cartAction'
 import { useWishActions } from '../../hooks/wishAction'
 import { useCart } from '../../contexts/cart-context';
@@ -118,7 +120,11 @@ function Cart() {
                                     </p>
                                 </div>
                                 <br />
-                                <button className="btn outline-primary cart-p-btn">Checkout</button>
+                                
+                               <button disabled={!cartState?.selectedAddress} className="btn outline-primary cart-p-btn">Checkout</button>
+                            </div>
+                            <div>
+                                {!cartState?.selectedAddress&&"please select a address"}
                             </div>
                         </div>
                     </div>

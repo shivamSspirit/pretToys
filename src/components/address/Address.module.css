@@ -1,0 +1,49 @@
+.heroform {
+    background-color: rgb(218, 218, 203);
+    display: flex;
+    flex-direction: column;
+    width: 29vw;
+    height: auto;
+    /* background-image: linear-gradient(to bottom right, rgb(32, 73, 81), rgb(97, 102, 161)); */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: .5rem;
+    padding: .5rem;
+    border-radius: .3rem;
+    z-index: 1;
+}
+
+.herosection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.closeicon{
+    max-width: 26px;
+    max-height: 26px;
+}
+
+.formcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.title {}
+
+.adrsinputs {}
+
+.formsection {}
+
+.modalFooter {}
+
+.dummy {}
+
+.actions {}
+
+.cancel {}
+
+.save {}

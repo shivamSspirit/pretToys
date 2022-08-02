@@ -1,0 +1,25 @@
+.p-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding-top: 2rem;
+}
+
+.p-parts {
+    width: 50%;
+    display: flex;
+    background-color: aliceblue;
+    margin: 0 auto;
+}
+
+.side-bar {
+    flex-basis: 40%;
+    background-color: aquamarine;
+}
+
+.main-section {
+    flex-basis: 60%;
+    background-color: blue;
+}

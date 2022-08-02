@@ -10,9 +10,16 @@ export function filterReducer(state, action) {
     switch (action.type) {
         case "CATEGORY":
             if (action.payload.checked) {
-                return {
-                    ...state,
-                    filterCategory: [...state.filterCategory, action.payload.value]
+                if (state.filterCategory.find(val => val === action.payload.value)) {
+                    return {
+                        ...state,
+                        filterCategory: state.filterCategory
+                    }
+                } else {
+                    return {
+                        ...state,
+                        filterCategory: [...state.filterCategory, action.payload.value]
+                    }
                 }
             } else {
                 return {

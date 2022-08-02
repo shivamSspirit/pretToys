@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useWishList } from '../../contexts/wishlist-context'
+import { useCart } from '../../contexts/cart-context'
 import './header.css'
 
 import shoppingBag from '../../assest/images/jpeg/shopping-bag.png'
@@ -7,7 +9,8 @@ import userIcon from '../../assest/images/jpeg/user.png'
 import headerIcon from '../../assest/images/svgs/toy.svg'
 import searchIcon from '../../assest/images/jpeg/search.png'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../../contexts/auth-context'
+
+
 
 // by age
 // by brand
@@ -15,9 +18,8 @@ import { useAuth } from '../../contexts/auth-context'
 
 function Header() {
 
-    // const { globalStateProperties } = useGlobal()
-
-    const { authToken } = useAuth()
+    const { wishState } = useWishList()
+    const { cartState } = useCart()
 
     return (
         <div>
@@ -26,15 +28,13 @@ function Header() {
                     <div className="icon-container">
                         <Link className="img-link" to="/">
                             <span>
-                                <img className="icon" src={headerIcon} alt="" /> 
+                                <img className="icon" src={headerIcon} alt="" />
                             </span>
                         </Link>
                     </div>
                     <div className="ecom-nav">
-                        <Link to={'#home'} className="nav-link">Home</Link>
-                        <Link to={'#category'} className="nav-link">category</Link>
-                        <Link to={'#age'} className="nav-link">age</Link>
-                        <Link to={'#brand'} className="nav-link">brand</Link>
+                        <Link to={'/'} className="nav-link">Home</Link>
+                        <Link to={'/products'} className="nav-link">shopnow</Link>
                     </div>
                     <div className="search-bar">
                         <input className="search" placeholder="Search for brands" type="text" name="search" />
@@ -42,8 +42,8 @@ function Header() {
                     </div>
                     <div className="socials-ecom">
                         <span className='admin-icon'>
-                            <Link className='account-link' to="/auth/login">
-                                <span className='user-name'>{authToken && 'shivam'}</span>
+                            <Link className='account-link' to="/profile">
+                                <span className='user-name'>{localStorage.getItem("authUser") ? localStorage.getItem("authUser") : 'creater'}</span>
                                 <img src={userIcon}
                                     className="social-icons" />
                             </Link>
@@ -52,13 +52,18 @@ function Header() {
                             <Link to="/wishlist">
                                 <img src={heartIcon}
                                     className="social-icons" />
+                                    <span className='badgeswish'>{wishState?.wishCount}</span>
                             </Link>
                         </span>
                         <span>
                             <Link to="/cart">
                                 <img src={shoppingBag} className="social-icons" />
+                                <span className='badgesbag'>{cartState?.totalCartItems}</span>
                             </Link>
                         </span>
+                        {/* <span>
+
+                        </span> */}
                     </div>
                 </div>
             </header>

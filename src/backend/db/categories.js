@@ -8,32 +8,30 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "shoes",
+    categoryName: "creativity",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "creative nature of handcrafting art",
+      imgthumbnail:'https://res.cloudinary.com/ddwkxn8ak/image/upload/v1659428290/ecom/soraya-irving-AGtksbL8z2c-unsplash_mmbqdu.jpg'
   },
   {
     _id: uuid(),
-    categoryName: "sliperss",
+    categoryName: "premium",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "premium toys for multipersonality",
+      imgthumbnail:"https://res.cloudinary.com/ddwkxn8ak/image/upload/v1659439900/ecom/photo-1652697229110-c30dd3db00f2_wpf7g5.jpg"
   },
   {
     _id: uuid(),
-    categoryName: "jaket",
+    categoryName: "expensive",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "expensive in playing feelings",
+      imgthumbnail:"https://res.cloudinary.com/ddwkxn8ak/image/upload/v1659439958/ecom/photo-1656400313954-5ef487b54394_hupusd.jpg"
   },
   {
     _id: uuid(),
-    categoryName: "boots",
+    categoryName: "trucktoys",
     description:
-      "Meant to caduse discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
-  },
-  {
-    _id: uuid(),
-    categoryName: "perfumes",
-    description:
-      "Meant to causdse discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "nice truck toys for babies",
+      imgthumbnail:'https://res.cloudinary.com/ddwkxn8ak/image/upload/v1659294455/ecom/photo-1658490268010-8338dc97a721_tygiqz.jpg'
   },
 ];

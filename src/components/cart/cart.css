@@ -55,6 +55,7 @@
 }
 
 .cart-pro {
+	width: 100%;
 	background: var(--primary-color);
 	margin: 0 auto;
 }
@@ -188,4 +189,5 @@
 	background-color: var(--default-color);
 	color: var(--primary-color);
 	margin: 0 auto;
+	text-align: center;
 }

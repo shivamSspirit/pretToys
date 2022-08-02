@@ -3,6 +3,7 @@ export const cartInitialState = {
     totalMoney: 0,
     totalCartItems: 0,
     deleveryCharges:500,
+    selectedAddress:null
 }
 
 export function CartReducer(state = cartInitialState, action) {
@@ -23,10 +24,17 @@ export function CartReducer(state = cartInitialState, action) {
             }
 
 
-        case "ADD TO WISHLIST":
+        case "SET_SELECTED_ADDRESS":
             return {
-
+                ...state,
+                selectedAddress:action.payload
             }
+
+            case "UNSET_SELECTED_ADDRESS":
+                return {
+                    ...state,
+                    selectedAddress:null
+                }   
 
         case "QUANTITY":
             return {
