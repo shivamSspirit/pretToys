@@ -1,7 +1,11 @@
+
+@import url(../../assest/css/theme.css);
+
+
 .p-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
+    width: 100%;
+    height: calc(100% - 85px);
+    background:var(--backgroundImg);
     text-align: center;
     color: white;
     padding-top: 2rem;
@@ -12,14 +16,35 @@
     display: flex;
     background-color: aliceblue;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .side-bar {
     flex-basis: 40%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
+
+.ul-container{
+
+}
+
+.navigations{
+    /* list-style: none;
+    background-color: yellow;
+    padding: 0.5rem; */
+    background-color: yellow;
+}
+
+.navigation{
+    list-style: none;
+    background: var(--backgroundImg);
+    height: 2rem;
+    /* background-color: yellow; */
+    margin: 0.5rem;
+}
+
 
 .main-section {
     flex-basis: 60%;
-    background-color: blue;
+    background: var(--backgroundImg);
 }

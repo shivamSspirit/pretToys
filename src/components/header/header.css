@@ -10,8 +10,8 @@ body {
 	display: flex;
 	flex-direction: row;
 	height: auto;
-	background-color: var(--default-color);
-	color: var(--primary-color);
+	background: var(--backgroundImg);
+	color: var(--secondary-color);
 	padding: 1rem;
 	position: sticky;
 }
@@ -37,6 +37,7 @@ body {
 	align-content: center;
 	display: flex;
 	align-items: center;
+	color: var(--secondary-color);
 }
 
 .account-link {
@@ -73,7 +74,7 @@ body {
 	font-size: var(--head-txt-size);
 	font-weight: var(--head-txt-weight);
 	text-decoration: none;
-	color: var(--primary-color);
+	color: var(--secondary-color);
 }
 
 .search-bar {
@@ -203,8 +204,8 @@ body {
 		align-items: end;
 		position: absolute;
 		top: 4rem;
-		width: 100%;
-		left: 0px;
+		width: 80%;
+		left: 30px;
 	}
 
 	.ecom-header {
@@ -217,7 +218,7 @@ body {
 		color: var(--primary-color);
 		padding: 0rem;
 		position: sticky;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 
 	.search {
@@ -227,7 +228,7 @@ body {
 	}
 
 	.icon-container {
-		padding-left: 0;
+		padding-left: 30px;
 		align-content: flex-start;
 		align-items: flex-start;
 		justify-content: flex-start;

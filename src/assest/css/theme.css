@@ -1,6 +1,6 @@
 
 :root{
-    font-family:Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    --font:ui-rounded;
 
     /* for background-color:*/
     --default-color:rgb(212, 252, 181);
@@ -8,6 +8,8 @@
     --secondary-color:white;
     --gray-color:rgb(199, 198, 198);
 
+    --backgroundImg:linear-gradient(99deg, rgb(186, 46, 65) 71%, rgba(208, 39, 61, 0.954) 88%, rgb(216, 21, 21) 100%);
+    /* --backgroundImg: linear-gradient(0deg, rgb(99, 13, 95) 0%, rgba(172,45,253,1) 100%); */
     /* for headers */
     --head-txt-size:1rem;
     --head-txt-weight:550;

@@ -52,7 +52,7 @@ const useAddressForm = (Callback) => {
             case 'mobile':
 
                 if (
-                    !new RegExp("/^([+]\d{2}[ ])?\d{10}$/").test(value)
+                    !new RegExp(/^(\+\d{1,3}[- ]?)?\d{10}$/).test(value)
                 ) {
                     setErrors({
                         ...errors,
@@ -104,11 +104,11 @@ const useAddressForm = (Callback) => {
 
 
                 if (
-                    !new RegExp("[a - zA - Z0 - 9]").test(value)
+                    !new RegExp("[a - zA - Z]").test(value)
                 ) {
                     setErrors({
                         ...errors,
-                        area: 'area should be alphanumeric'
+                        area: 'area should be alphbaate'
                     })
                 } else {
 
@@ -121,11 +121,11 @@ const useAddressForm = (Callback) => {
             case 'cityAndstate':
 
                 if (
-                    !new RegExp("[a - zA - Z0 - 9]").test(value)
+                    !new RegExp("[a - zA - Z]").test(value)
                 ) {
                     setErrors({
                         ...errors,
-                        cityAndstate: 'cityAndstate should be alphanumeric'
+                        cityAndstate: 'cityAndstate should be alphates'
                     })
                 } else {
 

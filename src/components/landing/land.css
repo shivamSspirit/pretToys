@@ -6,13 +6,15 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-color: var(--default-color);
+    background: var(--backgroundImg);
+    color: var(--secondary-color);
 }
 
 .main-content{
     width: 100%;
     height: calc(100%-85px);
     overflow-x: hidden;
+    color: var(--secondary-color);
 }
 
 .land-search{
@@ -24,11 +26,12 @@
     display: flex;
     width: 100%;
     height: 500px;
-    background: linear-gradient( rgb(212, 252, 181), rgb(203, 229, 184), rgb(204, 216, 194));
+    background: url('https://res.cloudinary.com/ddwkxn8ak/image/upload/v1660393771/photo-1658235996273-2dc44854e147_e8u69k.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
     align-items: center;
+    color: var(--secondary-color);
 }
 
 .land-img{
@@ -43,10 +46,11 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    color: black;
+    /* color: black; */
     /* border: solid red 2px; */
     justify-content: center;
     align-items: center;
+    color: var(--secondary-color);
 }
 
 .txt-0{
@@ -62,7 +66,7 @@
     font-size: var(--land-txt-s);
     font-weight:var(--land-txt-w) ;
     /* width: 17rem; */
-    color: black;
+   color: var(--secondary-color);
     background: none;
     height: 2.5rem;
     /* border: 1.5px solid black; */
@@ -76,13 +80,14 @@
 }
 
 .land-b:hover{
-    background-color: var(--default-color);
+    background-color: black;
 }
 
 .sec-title{
     font-size: var(--land-head-s);
     font-weight:var(--land-head-w) ;
     color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     margin-bottom: 1rem;
 }

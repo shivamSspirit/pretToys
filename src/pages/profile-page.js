@@ -5,7 +5,7 @@ import ProfileComponent from '../components/profilecomp/profilecompo'
 
 function ProfilePage() {
     return (
-        <div>
+        <div className='profile-section' style={{width:'100vw',height:'100vh'}}>
             <Header />
             <ProfileComponent />
             <AddressFormModal/>

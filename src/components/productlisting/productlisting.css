@@ -7,6 +7,57 @@
     gap: .3rem;
     /* height: 82vh; */
     height: 100vh;
+    font-family: var(--font);
+}
+
+#flyoutMenu {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--default-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform .3s
+                cubic-bezier(0, .52, 0, 1);
+    overflow: scroll;
+    z-index: 1000;
+  }
+
+  .in-slide{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+   
+  #flyoutMenu.hide {
+    transform: translate3d(-100vw, 0, 0);
+  }
+   
+  #flyoutMenu.show {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+/* .hide{
+    visibility: hidden;
+}
+.show{
+    visibility:visible ;
+} */
+
+.filter-btn{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: .3rem;
+    background-color: rgb(19, 83, 61);
 }
 
 .product-search {
@@ -22,7 +73,7 @@
 
 .parts-1 {
     flex-basis: 25%;
-    background-color: var(--default-color);
+    background: var(--backgroundImg);
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -48,6 +99,7 @@
 
 .head-title {
     display: inline-flex;
+    width: 100%;
 }
 
 .filter {
@@ -72,6 +124,7 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    padding: 1rem;
 }
 
 .price {
@@ -156,7 +209,7 @@
 
 .parts-2 {
     flex-basis: 75%;
-    background-color: var(--default-color);
+    background: var(--backgroundImg);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -221,11 +274,27 @@
     height: 3rem !important;
 }
 
+ .more-margin{
+    margin-top: 1.1rem !important;
+} 
+
 
 
 @media only screen and (max-width: 768px) {
     .parts-1 {
         display: none;
+    }
+
+    .filter-btn{
+        display: block;
+        z-index: 2;
+        background-color: #555;
+    }
+
+    .open-up{
+        width: 100%;
+        background-color: #555;
+        padding: .5rem;
     }
 
     .slider{

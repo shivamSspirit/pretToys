@@ -1,0 +1,18 @@
+@import url(../../assest/css/theme.css);
+
+.main-loader{
+    display: flex;
+    width: 80vw;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.loader-container{
+    width: 80%;
+    background: var(--backgroundImg);
+    display: flex;
+    justify-content:center;
+    justify-items: center;
+    align-items: center;
+}

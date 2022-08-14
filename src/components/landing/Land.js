@@ -3,27 +3,49 @@ import './land.css'
 import { useGlobal } from '../../contexts/globalContext'
 import { useNavigate } from 'react-router-dom'
 
-import appleImage from '../../assest/images/jpeg/apple-iphone-13.jpg'
-import landImg from '../../assest/images/jpeg/land (1).jpg'
+// import appleImage from '../../assest/images/jpeg/apple-iphone-13.jpg'
+// import landImg from '../../assest/images/jpeg/land (1).jpg'
 
 import * as CategoryApis from '../../api/category'
 import { Link } from 'react-router-dom'
+import { flatMap } from 'lodash'
+import Loader from '../loader/Loader'
 
 function Land() {
 
     const navigate = useNavigate()
-    const { category, setCategory, currentCategory, setCurrentCategory } = useGlobal();
+    const { category, setCategory, currentCategory, setCurrentCategory, loader, setLoader } = useGlobal();
 
     useEffect(() => {
+        setLoader(true)
         CategoryApis?.getCategoryList().then(res => {
-            setCategory(res?.data?.categories)
+            if (res) {
+                setLoader(false)
+                setCategory(res?.data?.categories)
+            }
+
         })
     }, [])
 
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+            console.log("token")
+            navigate("/auth/login")
+        }
+    }, [localStorage.getItem("token")])
+
     const movetoProductlisting = async (categoryID) => {
+        // setLoader(true);
         const res = await CategoryApis?.getSingleCategory(categoryID);
-        await setCurrentCategory(res?.data?.category?.categoryName);
-        navigate('/products')
+        if(res)
+        {
+            // setLoader(false)
+            await setCurrentCategory(res?.data?.category?.categoryName);
+            navigate('/products')
+        }
+       
+        // await setCurrentCategory(res?.data?.category?.categoryName);
+        // navigate('/products')
     }
 
     return (
@@ -42,7 +64,8 @@ function Land() {
                         <h2 className="sec-title">
                             Featured Categories
                         </h2>
-                        <div className="sec-wrap">
+
+                        {loader ? <Loader /> : (<div className="sec-wrap">
                             {category && category.map((item, idx) => (
                                 <div key={`cate${idx}`}>
                                     <div className="product-card-container">
@@ -66,7 +89,8 @@ function Land() {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </div>)}
+
                     </div>
                 </div>
             </div>

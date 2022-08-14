@@ -54,7 +54,7 @@ function Wishlist() {
                                             className="img-action" alt="" /></span>
                                     </div>
                                 </div>
-                                <div className="card-content-product0">
+                                <div className="card-content-product0 more-margin0">
                                     <h3 className="title0">{product.title}</h3>
                                     <p className="price-p0">{product.price}</p>
                                     {cartState?.cartproducts?.find(item => item?._id === product?._id) ? <Link to={'/cart'} className="btn-product0 ecom-btn-cart">go to cart</Link> : <button onClick={() => movetoCart(product)} className="btn-product0 ecom-btn-cart">add to cart</button>}

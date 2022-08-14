@@ -2,39 +2,48 @@ import React, { useState } from 'react'
 import './signup.css'
 import * as AuthApis from '../../../api/authApi'
 import { Link, useNavigate } from 'react-router-dom'
+import useSignupForm from '../../../hooks/useforms/useSignup'
+
+
 function Signup() {
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        password: ''
-    })
 
     const navigate = useNavigate()
-    const handleUserSignup = (e) => {
-        const val = e.target.name;
-        if (val === 'username') {
-            setUser({
-                ...user, name: e.target.value
-            })
-        } if (val === 'email') {
-            setUser({
-                ...user, email: e.target.value
-            })
-        }
-        if (val === 'pwd') {
-            setUser({
-                ...user, password: e.target.value
-            })
-        }
+
+    const formSignup = () => {
+        console.log("Callback function when form is submitted!");
+        console.log("Form Values ", values);
     }
 
-    const handleSignSubmit = (e) => {
-        e.preventDefault();
-        const mainuser = { ...user };
-        AuthApis?.signupHandler(mainuser).then(res => {
-            console.log('res from sign up', res?.data?.createdUser)
-        })
-        navigate('/auth/login')
+    const { values, errors, handleChange } = useSignupForm(formSignup)
+
+
+    // const handleSignSubmit = (e) => {
+    //     e.preventDefault();
+    //     const mainuser = { ...user };
+    //     AuthApis?.signupHandler(mainuser).then(res => {
+    //         console.log('res from sign up', res?.data?.createdUser)
+    //     })
+    //     navigate('/auth/login')
+    // }
+
+
+    const handleSubmit = (event) => {
+        if (event) event.preventDefault();
+        if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
+            AuthApis.signupHandler({
+                firstName: values.firstName,
+                lastName: values.lastName,
+                email: values.email,
+                password: values.password
+            }).then(res => {
+                console.log('res from sign up', res)
+            })
+            navigate('/auth/login')
+
+
+        } else {
+            alert("There is an Error!");
+        }
     }
 
     return (
@@ -43,21 +52,32 @@ function Signup() {
                 <div className="forms">
                     <div className="single-input ecom-form">
                         <h3 className="head-form ecom-user">User Signup</h3>
-                        <form id="my-form" onSubmit={handleSignSubmit}>
+                        <form id="my-form" onSubmit={handleSubmit}>
+
                             <div className="med">
-                                <label className="label ecom-label" for="name"> Name </label>
-                                <input value={user?.name} onChange={handleUserSignup} required className="input" type="text" name="username" />
+                                <label className="label ecom-label" for="name"> FirstName </label>
+                                <input value={values?.firstName} onChange={handleChange} required className="input" type="text" name="firstname" />
+                                {errors.firstName && <p className='signup-error'>{errors.firstName}</p>}
                             </div>
+
+                            <div className="med">
+                                <label className="label ecom-label" for="name"> LastName </label>
+                                <input value={values?.lastName} onChange={handleChange} required className="input" type="text" name="lastname" />
+                                {errors.lastName && <p className='signup-error'>{errors.lastName}</p>}
+                            </div>
+
                             <div className="med">
                                 <label className="label ecom-label" for="Email"> Email </label>
-                                <input value={user?.email} onChange={handleUserSignup} required className="input input-email" type="email" name="email" />
+                                <input value={values?.email} onChange={handleChange} required className="input input-email" type="email" name="email" />
+                                {errors.email && <p className='signup-error'>{errors.email}</p>}
                                 {/* <img className="form-icon form-icon-disable ecom-email" src="../../../images/svgs/email.svg"
                                     alt="email" /> */}
                             </div>
 
                             <div className="med">
                                 <label className="label ecom-label" for="pwd"> Password </label>
-                                <input value={user?.password} onChange={handleUserSignup} required className="input" type="text" name="pwd" />
+                                <input value={values?.password} onChange={handleChange} required className="input" type="text" name="pwd" />
+                                {errors.password && <p className='signup-error'>{errors.password}</p>}
                                 {/* <img className="form-icon form-icon-warning ecom-warn" src="../../../images/svgs/error.svg"
                                     alt="number" /> */}
                             </div>

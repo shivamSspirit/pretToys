@@ -2,10 +2,12 @@ import { useWishList } from "../contexts/wishlist-context";
 import * as ActionTypes from '../constants/actions'
 import * as wishApis from '../api/wishlist'
 
+import { useToast } from "./useToasts";
+
 
 export function useWishActions() {
-
     const { wishState, dispatchWish } = useWishList();
+    const {showToast} = useToast();
 
     const ifProductinWishList = (product) => {
         const ifpro = wishState?.wishproducts?.find(item => item?._id === product?._id)
@@ -37,10 +39,13 @@ export function useWishActions() {
             return;
         }
         const response = await wishApis?.postTowish(data);
-        dispatchWish({
-            type: ActionTypes?.Wislist?.ADD_TO_WISH,
-            payload: response?.data?.wishlist
-        })
+        if(response){
+            showToast("success","product add to wishlist")
+            dispatchWish({
+                type: ActionTypes?.Wislist?.ADD_TO_WISH,
+                payload: response?.data?.wishlist
+            })
+        }
         if (callback) {
             return callback();
         }
@@ -50,10 +55,14 @@ export function useWishActions() {
         console.log('remove')
         const response = await wishApis?.removeFromWish(data);
         console.log('res', response)
-        dispatchWish({
-            type: ActionTypes?.Wislist?.ADD_TO_WISH,
-            payload: response?.data?.wishlist
-        })
+        if(response){
+            showToast("info","product remove from wishlist")
+            dispatchWish({
+                type: ActionTypes?.Wislist?.ADD_TO_WISH,
+                payload: response?.data?.wishlist
+            })
+        }
+       
         if (callback) {
             return callback();
         }

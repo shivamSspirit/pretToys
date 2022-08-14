@@ -24,7 +24,13 @@ const GlobalContext = ({ children }) => {
 
 	const [openmodal,setOpenModal] = useState(false);
 
-	const [allAddress,setAllAddress] = useState([])
+	const [allAddress,setAllAddress] = useState([]);
+
+	const [slideToggle,setSlideToggle] = useState(false);
+
+
+	const [loader,setLoader] =  useState(false);
+
 
 	const setDynamicProperties = (name, value) => {
 		setglobalStateProperties({ ...globalStateProperties, [name]: value });   // set dynamic properties with this
@@ -39,7 +45,9 @@ const GlobalContext = ({ children }) => {
 		currentCategory,
 		setCurrentCategory,
 		openmodal,setOpenModal,
-		allAddress,setAllAddress
+		allAddress,setAllAddress,
+		slideToggle,setSlideToggle,
+		loader,setLoader
 
 	};
 

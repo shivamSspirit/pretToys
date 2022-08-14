@@ -12,8 +12,11 @@
     "razorpay": "^2.8.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-helmet": "^6.1.0",
+    "react-loader-spinner": "^5.1.7-beta.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.8",
     "shortid": "^2.2.16",
     "uuid": "^8.3.2"
   },

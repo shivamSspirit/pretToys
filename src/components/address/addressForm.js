@@ -23,7 +23,7 @@ function AddressFormModal(props) {
         onCancel(event);
         setOpenModal(false)
       } else {
-          alert("There is an Error!");
+         console.log("error",errors)
       }
   }
 

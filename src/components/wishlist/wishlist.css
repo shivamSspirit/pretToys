@@ -2,7 +2,7 @@
 
 
 .wish-container {
-    background-color: var(--default-color);
+    background: var(--backgroundImg);
     width: 100%;
     min-height: 94vh;
     overflow-y: hidden;
@@ -33,6 +33,11 @@
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
+    justify-content: center;
+}
+
+.more-margin0{
+    margin-top: 0.6rem;
 }
 
 .add-cl {

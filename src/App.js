@@ -6,6 +6,7 @@ import { WishProvider } from "./contexts/wishlist-context";
 import { FilterProvider } from "./contexts/filter-context";
 import { CartProvider } from "./contexts/cart-context";
 import { AuthProvider } from "./contexts/auth-context";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

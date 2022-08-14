@@ -16,16 +16,16 @@ function ProfileComponent() {
                     <div className='ul-container'>
                         <ul className='navigations'>
                             <li className='navigation'>
-                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile'}>one</Link>
+                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile'}>Profile</Link>
                             </li>
                             <li className='navigation'>
-                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile/address'}>two</Link>
+                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile/address'}>Address</Link>
                             </li>
                             <li className='navigation'>
-                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile/account'}>three</Link>
+                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile/account'}>Account</Link>
                             </li>
                             <li className='navigation'>
-                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile/orders'}>four</Link>
+                                <Link style={{textDecoration:"none",color:'white'}} to={'/profile/orders'}>Orders</Link>
                             </li>
                         </ul>
                     </div>
