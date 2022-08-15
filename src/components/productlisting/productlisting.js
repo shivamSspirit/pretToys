@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import './productlisting.css'
+import { Link } from 'react-router-dom'
 
+import './productlisting.css'
 import HeartIcon from '../../assest/images/svgs/blank.svg'
 import FilledIcon from '../../assest/images/svgs/filled.svg'
 
@@ -8,7 +9,6 @@ import * as ActionTypes from '../../constants/actions'
 import * as productApi from '../../api/productApi'
 import * as FilterHelper from '../../utils/helper'
 
-// import { ToastContainer } from 'react-toastify';
 
 import { useCart } from '../../contexts/cart-context'
 import { useWishList } from '../../contexts/wishlist-context'
@@ -17,15 +17,10 @@ import { useFilter } from '../../contexts/filter-context'
 import { useCartActions } from '../../hooks/cartAction'
 import { useWishActions } from '../../hooks/wishAction'
 
-import { Link } from 'react-router-dom'
 import Loader from '../loader/Loader'
-
-import { useToast } from '../../hooks/useToasts'
-
 
 
 function ProductListing() {
-    const { showToast } = useToast()
 
     const [ifFilterclear, setIfFilterclear] = useState(false);
     const [mainProductsss, setmainout] = useState(null);
@@ -33,11 +28,9 @@ function ProductListing() {
     const { cartState } = useCart();
     const { filterState, dispatchFilter } = useFilter()
     const { wishState } = useWishList();
-    const { allproducts,setLoader, dispatchAllproducts, currentCategory, setCurrentCategory, slideToggle, setSlideToggle,loader } = useGlobal();
-
+    const { allproducts, setLoader, dispatchAllproducts, currentCategory, setCurrentCategory, slideToggle, setSlideToggle, loader } = useGlobal();
     const { postToCart } = useCartActions();
     const { addToWish, removeFromWish } = useWishActions();
-
 
     let slidevisi = 'hide'
 
@@ -88,7 +81,6 @@ function ProductListing() {
 
     return (
         <div>
-
             <div className='filter-btn'>
                 <button className='open-up' onClick={() => setSlideToggle(!slideToggle)}>open up</button>
             </div>
@@ -97,9 +89,6 @@ function ProductListing() {
                 <div onMouseUp={() => setSlideToggle(!slideToggle)} id="flyoutMenu"
                     className={slidevisi}>
                     <div className='in-slide'>
-
-
-                        {/* <div className="parts-1"> */}
                         <div className="head-title">
                             <h2 className="filter">Filter</h2>
                             <p onClick={clearAllFilter} className="clear">Clear All</p>
@@ -275,12 +264,7 @@ function ProductListing() {
                     {/* </div> */}
                 </div>
 
-
                 <div className="parts">
-
-
-
-
                     {/**side bar as part 1 start here */}
                     <div className="parts-1">
                         <div className="head-title">
@@ -457,33 +441,30 @@ function ProductListing() {
                     </div>
 
                     {/**filters are ending here */}
-
-
                     <div className="parts-2">
                         <h2 className="part-2-head">Showing All Product</h2>
-                        {loader?<Loader/>:(
+                        {loader ? <Loader /> : (
 
-                             <div className="products">
-                             {allproducts?.products && ((currentCategory && !ifFilterclear) ? finalProducts : allproducts?.products)?.map((product, idx) => (
-                                 <div key={`pro${idx}`} class="product-card ecom-card0">
-                                     <div class="img-container-product ecom-p0">
-                                         <img class="p-img" alt="" src={product?.proImg} />
-                                         <div class="badge newbadge">
-                                             <span>
-                                                 {wishState?.wishproducts?.find(item => item?._id === product?._id) ? <img onClick={() => removeFromWish(product?._id)} className='hert' src={FilledIcon} alt='heart' /> : <img onClick={() => addToWish(product)} className='hert' src={HeartIcon} alt='heart' />}
-                                             </span>
-                                         </div>
-                                     </div>
-                                     <div className="card-content-product more-margin">
-                                         <h3 className="title0">{product?.title}</h3>
-                                         <p className="price-p0">{`€ ${product?.price}`}</p>
-                                         {cartState?.cartproducts?.find(item => item?._id === product?._id) ? <Link to={'/cart'} className="btn-product0 ecom-btn-cart">go to cart</Link> : <button onClick={e => handleAdddCart(e, product)} className="btn-product0 ecom-btn-cart">add to cart</button>}
-                                     </div>
-                                 </div>
-                             ))}
-                         </div>
+                            <div className="products">
+                                {allproducts?.products && ((currentCategory && !ifFilterclear) ? finalProducts : allproducts?.products)?.map((product, idx) => (
+                                    <div key={`pro${idx}`} class="product-card ecom-card0">
+                                        <div class="img-container-product ecom-p0">
+                                            <img class="p-img" alt="" src={product?.proImg} />
+                                            <div class="badge newbadge">
+                                                <span>
+                                                    {wishState?.wishproducts?.find(item => item?._id === product?._id) ? <img onClick={() => removeFromWish(product?._id)} className='hert' src={FilledIcon} alt='heart' /> : <img onClick={() => addToWish(product)} className='hert' src={HeartIcon} alt='heart' />}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="card-content-product more-margin">
+                                            <h3 className="title0">{product?.title}</h3>
+                                            <p className="price-p0">{`€ ${product?.price}`}</p>
+                                            {cartState?.cartproducts?.find(item => item?._id === product?._id) ? <Link to={'/cart'} className="btn-product0 ecom-btn-cart">go to cart</Link> : <button onClick={e => handleAdddCart(e, product)} className="btn-product0 ecom-btn-cart">add to cart</button>}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         )}
-                       
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import { useToast } from "./useToasts";
 
 export function useWishActions() {
     const { wishState, dispatchWish } = useWishList();
-    const {showToast} = useToast();
+    const { showToast } = useToast();
 
     const ifProductinWishList = (product) => {
         const ifpro = wishState?.wishproducts?.find(item => item?._id === product?._id)
@@ -30,7 +30,7 @@ export function useWishActions() {
     }
 
     async function addToWish(data, callback) {
-        console.log('add') 
+        console.log('add')
         if (ifProductinWishList(data)) {
             dispatchWish({
                 type: ActionTypes?.Wislist?.ADD_TO_WISH,
@@ -39,8 +39,8 @@ export function useWishActions() {
             return;
         }
         const response = await wishApis?.postTowish(data);
-        if(response){
-            showToast("success","product add to wishlist")
+        if (response) {
+            showToast("success", "product add to wishlist")
             dispatchWish({
                 type: ActionTypes?.Wislist?.ADD_TO_WISH,
                 payload: response?.data?.wishlist
@@ -55,14 +55,14 @@ export function useWishActions() {
         console.log('remove')
         const response = await wishApis?.removeFromWish(data);
         console.log('res', response)
-        if(response){
-            showToast("info","product remove from wishlist")
+        if (response) {
+            showToast("info", "product remove from wishlist")
             dispatchWish({
                 type: ActionTypes?.Wislist?.ADD_TO_WISH,
                 payload: response?.data?.wishlist
             })
         }
-       
+
         if (callback) {
             return callback();
         }

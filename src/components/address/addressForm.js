@@ -69,8 +69,6 @@ function AddressFormModal(props) {
             </form>
 
           </div>
-
-
         </div>
       )}
     </>

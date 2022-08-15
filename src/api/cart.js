@@ -5,11 +5,7 @@ const cartUrl = '/api/user/cart';
 
 export async function getCart() {
     try {
-        const response = await axios.get(cartUrl, {
-            headers: {
-                authorization: localStorage.getItem('token')
-            }
-        });
+        const response = await axios.get(cartUrl, { headers: { authorization: localStorage.getItem('token') } });
         return response;
     } catch (error) {
         console.log(error)
@@ -20,15 +16,7 @@ export async function getCart() {
 
 export async function posttocart(product) {
     try {
-        const response = await axios.post(cartUrl, {
-            product: product
-        },
-            {
-                headers: {
-                    authorization: localStorage.getItem('token')
-                }
-            }
-        );
+        const response = await axios.post(cartUrl, { product: product }, { headers: { authorization: localStorage.getItem('token') } });
         return response;
     } catch (error) {
         console.log(error)
@@ -40,12 +28,7 @@ export async function posttocart(product) {
 
 export async function removefromcart(productID) {
     try {
-        const response = await axios.delete(`${cartUrl}/${productID}`, {
-            headers: {
-                authorization: localStorage.getItem('token')
-            }
-        });
-        console.log('res',response)
+        const response = await axios.delete(`${cartUrl}/${productID}`, { headers: { authorization: localStorage.getItem('token') } });
         return response;
     } catch (error) {
         console.log(error)
@@ -56,11 +39,8 @@ export async function removefromcart(productID) {
 // increment and decrement in product
 
 export async function productAction(productID, action) {
-    console.log('ooooo', action)
     try {
-        const response = await axios.post(`${cartUrl}/${productID}`, { action },
-            { headers: { authorization: localStorage.getItem('token') } });
-            console.log('res',response)
+        const response = await axios.post(`${cartUrl}/${productID}`, { action }, { headers: { authorization: localStorage.getItem('token') } });
         return response;
     } catch (error) {
         console.log(error)

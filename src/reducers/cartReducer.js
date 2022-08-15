@@ -35,27 +35,6 @@ export function CartReducer(state = cartInitialState, action) {
                     ...state,
                     selectedAddress:null
                 }   
-
-        case "QUANTITY":
-            return {
-
-            }
-
-        case "INCREASE_QUANTITY":
-            return {
-
-            }
-
-        case "DECREASE_QUANTITY":
-            return {
-
-            }
-
-        case "TOTAL_PRICE_CHECK":
-            return {
-
-            }
-
     }
 }
 

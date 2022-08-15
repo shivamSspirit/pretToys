@@ -1,27 +1,12 @@
 import * as cartApis from '../api/cart';
 import * as ActionTypes from '../constants/actions';
 import { useCart } from '../contexts/cart-context';
-
 import { useToast } from './useToasts';
-// const resetFunction = () => {
-//     localStorage.removeItem("authToken");
-//     localStorage.removeItem("authUser");
-//     setAuthToken("");
-//     setAuthUser(null);
-//     dispatch({ type: CART_OPERATION, payload: { cart: [] } });
-//     dispatch({ type: WISHLIST_OPERATION, payload: { wishlist: [] } });
-//     dispatch({ type: SET_ADDRESS, payload: { address: [] } });
-//     dispatch({ type: SET_ORDERS, payload: { orders: [] } });
-//     navigate("/login");
-//   };
+
 
 export function useCartActions() {
 	const { cartState, dispatchCart } = useCart();
-
 	const { showToast } = useToast();
-
-	
-
 
 	async function getCart(callback) {
 		const response = await cartApis?.getCart();
@@ -36,17 +21,15 @@ export function useCartActions() {
 
 	async function postToCart(data, callback) {
 		const response = await cartApis?.posttocart(data);
-
-		if(response){	
-		 	showToast("success","posting to cart")
+		if (response) {
+			showToast("success", "posting to cart")
 			await dispatchCart({
 				type: ActionTypes?.Cart?.ADD_TO_CART,
 				payload: response?.data?.cart
 			})
-			
+
 			console.log('money', cartState?.totalMoney)
 		}
-		
 		if (callback) {
 			return callback();
 		}
@@ -54,14 +37,14 @@ export function useCartActions() {
 
 	async function removeFromCart(data, callback) {
 		const response = await cartApis?.removefromcart(data);
-		if(response){
-			showToast('info','product remove from cart')
+		if (response) {
+			showToast('info', 'product remove from cart')
 			await dispatchCart({
 				type: ActionTypes?.Cart?.ADD_TO_CART,
 				payload: response?.data?.cart
 			})
 		}
-		
+
 	}
 
 	async function updateExistingProduct(productId, actionobj, product) {

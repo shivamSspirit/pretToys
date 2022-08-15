@@ -1,13 +1,12 @@
 import React from 'react'
 import Header from '../components/header/header'
 import ProductListing from '../components/productlisting/productlisting'
-import '../assest/css/pages.css'
 import { ToastContainer } from 'react-toastify';
 
 
 function ProductListingPage() {
   return (
-    <div className='sectionContainer'>
+    <div style={{width:"100vw",height:"100vh"}}>
       <Header/>
       <ProductListing/>
       <ToastContainer/>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
 import './signup.css'
 import * as AuthApis from '../../../api/authApi'
-import { Link, useNavigate } from 'react-router-dom'
 import useSignupForm from '../../../hooks/useforms/useSignup'
 
 
@@ -16,17 +17,6 @@ function Signup() {
 
     const { values, errors, handleChange } = useSignupForm(formSignup)
 
-
-    // const handleSignSubmit = (e) => {
-    //     e.preventDefault();
-    //     const mainuser = { ...user };
-    //     AuthApis?.signupHandler(mainuser).then(res => {
-    //         console.log('res from sign up', res?.data?.createdUser)
-    //     })
-    //     navigate('/auth/login')
-    // }
-
-
     const handleSubmit = (event) => {
         if (event) event.preventDefault();
         if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
@@ -39,8 +29,6 @@ function Signup() {
                 console.log('res from sign up', res)
             })
             navigate('/auth/login')
-
-
         } else {
             alert("There is an Error!");
         }

@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react'
-import './wishlist.css'
-
 import { Link } from 'react-router-dom'
 
+import './wishlist.css'
+
 import CloseIcon from '../../assest/images/svgs/close.svg'
-import Jaket from '../../assest/images/jpeg/leather.jpg'
 
 import { useWishList } from '../../contexts/wishlist-context'
 import { useWishActions } from '../../hooks/wishAction'
 import { useCartActions } from '../../hooks/cartAction'
-
 import { useCart } from '../../contexts/cart-context'
 
 
@@ -17,7 +15,7 @@ function Wishlist() {
     const { wishState } = useWishList()
     const { getWish, removeFromWish } = useWishActions()
     const { postToCart } = useCartActions()
-    const {cartState} = useCart()
+    const { cartState } = useCart()
 
     useEffect(() => {
         getWish(() => {
@@ -40,8 +38,7 @@ function Wishlist() {
 
     return (
         <>
-       
-        <div className="wish-container">
+            <div className="wish-container">
                 <div className="wishes">
                     <h2 className="my-wish">My Wishlist</h2>
                     <div className="all-wishes">
@@ -64,8 +61,6 @@ function Wishlist() {
                     </div>
                 </div>
             </div>
-      
-            
         </>
     )
 }

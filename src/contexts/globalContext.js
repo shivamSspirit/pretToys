@@ -1,36 +1,18 @@
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import React, { useState, useContext, useReducer } from "react";
 import { ProductsReducer, productInitialState } from "../reducers/productReducer";
 
 export const Context = React.createContext("defaultContext");
 
-// export const useAuth = (param) => {
-// 	const [authContext, setAuthContext] = useState(false);
-
-// 	useEffect(() => {
-// 		if (!param) {
-// 			setAuthContext(false);
-// 		} else {
-// 			setAuthContext(true)
-// 		}
-// 	}, [param])
-// 	return authContext;
-// }
 
 const GlobalContext = ({ children }) => {
 	const [globalStateProperties, setglobalStateProperties] = useState(null);  // object contains multiple global state variable
 	const [allproducts, dispatchAllproducts] = useReducer(ProductsReducer, productInitialState)
 	const [category, setCategory] = useState(null)
 	const [currentCategory, setCurrentCategory] = useState(null)
-
 	const [openmodal,setOpenModal] = useState(false);
-
 	const [allAddress,setAllAddress] = useState([]);
-
 	const [slideToggle,setSlideToggle] = useState(false);
-
-
 	const [loader,setLoader] =  useState(false);
-
 
 	const setDynamicProperties = (name, value) => {
 		setglobalStateProperties({ ...globalStateProperties, [name]: value });   // set dynamic properties with this
@@ -48,7 +30,6 @@ const GlobalContext = ({ children }) => {
 		allAddress,setAllAddress,
 		slideToggle,setSlideToggle,
 		loader,setLoader
-
 	};
 
 	return (

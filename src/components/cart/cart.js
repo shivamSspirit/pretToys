@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from 'react'
+import { Link,useNavigate } from 'react-router-dom'
+
 import './cart.css'
-
-import { Link } from 'react-router-dom'
-
 import { useCartActions } from '../../hooks/cartAction'
 import { useWishActions } from '../../hooks/wishAction'
 import { useCart } from '../../contexts/cart-context';
-import { conforms } from 'lodash'
-import { useNavigate } from 'react-router-dom'
+
+
 
 function Cart() {
     const { cartState } = useCart();
-    const { addToWish } = useWishActions()
+    const { addToWish } = useWishActions();
     const { removeFromCart, updateExistingProduct } = useCartActions();
+    const {dispatchCart}  = useCart();
+    const [currnstate,setcurrstate] = useState();
 
-    const {dispatchCart}  = useCart()
-
-
-    console.log('afscd', cartState?.selectedAddress)
-
-    const [currnstate,setcurrstate] = useState()
 
     const removeItemFromCart = async (productId) => {
         await removeFromCart(productId, () => {
@@ -132,9 +127,6 @@ function Cart() {
         //   showToast("error", "Payment failed, please try again.");
         });
       };
-
-
-
 
 
     return (

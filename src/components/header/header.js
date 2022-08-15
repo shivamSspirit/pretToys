@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+
+import { Link } from 'react-router-dom'
 import { useWishList } from '../../contexts/wishlist-context'
 import { useCart } from '../../contexts/cart-context'
 import './header.css'
+
 
 import shoppingBag from '../../assest/images/jpeg/shopping-bag.png'
 import heartIcon from '../../assest/images/jpeg/heart.png'
 import userIcon from '../../assest/images/jpeg/user.png'
 import headerIcon from '../../assest/images/svgs/toy.svg'
-import searchIcon from '../../assest/images/jpeg/search.png'
-import { Link } from 'react-router-dom'
-
-
 
 // by age
 // by brand
@@ -38,7 +37,6 @@ function Header() {
                     </div>
                     <div className="search-bar">
                         <input className="search" placeholder="Search for brands" type="text" name="search" />
-                        {/* <img className="search-icon" src={searchIcon} alt="search" /> */}
                     </div>
                     <div className="socials-ecom">
                         <span className='admin-icon'>
@@ -61,9 +59,6 @@ function Header() {
                                 <span className='badgesbag'>{cartState?.totalCartItems}</span>
                             </Link>
                         </span>
-                        {/* <span>
-
-                        </span> */}
                     </div>
                 </div>
             </header>

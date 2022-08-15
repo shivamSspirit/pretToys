@@ -112,20 +112,10 @@ const useSignupForm = (Callback) => {
         }
     }
 
-    // const asGuest = (e) => {
-    //     e.preventDefault();
-    //     console.log('login as guest')
-    //     setValues({
-    //         username: "shivam@gmail.com".trim(),
-    //         passsword: "Pret@spirit3".trim()
-    //     });
-    // }
-
     return {
         values,
         errors,
         handleChange,
-        // asGuest
     }
 }
 

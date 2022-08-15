@@ -1,20 +1,14 @@
 import React, { useEffect } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+
 import './land.css'
 import { useGlobal } from '../../contexts/globalContext'
-import { useNavigate } from 'react-router-dom'
-
-// import appleImage from '../../assest/images/jpeg/apple-iphone-13.jpg'
-// import landImg from '../../assest/images/jpeg/land (1).jpg'
-
 import * as CategoryApis from '../../api/category'
-import { Link } from 'react-router-dom'
-import { flatMap } from 'lodash'
 import Loader from '../loader/Loader'
 
 function Land() {
-
     const navigate = useNavigate()
-    const { category, setCategory, currentCategory, setCurrentCategory, loader, setLoader } = useGlobal();
+    const { category, setCategory, setCurrentCategory, loader, setLoader } = useGlobal();
 
     useEffect(() => {
         setLoader(true)
@@ -35,17 +29,11 @@ function Land() {
     }, [localStorage.getItem("token")])
 
     const movetoProductlisting = async (categoryID) => {
-        // setLoader(true);
         const res = await CategoryApis?.getSingleCategory(categoryID);
-        if(res)
-        {
-            // setLoader(false)
+        if (res) {
             await setCurrentCategory(res?.data?.category?.categoryName);
             navigate('/products')
         }
-       
-        // await setCurrentCategory(res?.data?.category?.categoryName);
-        // navigate('/products')
     }
 
     return (
@@ -53,7 +41,6 @@ function Land() {
             <div className="landing-page">
                 <div className="main-content">
                     <div className="land-img-container">
-                        {/* <img className="land-img" alt="land" src={landImg} /> */}
                         <div className="overtoimg">
                             <p className="txt-0">Clearance Sale</p>
                             <p className="txt-0">50% OFF</p>
