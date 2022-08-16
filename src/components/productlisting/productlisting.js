@@ -457,7 +457,7 @@ function ProductListing() {
                                             </div>
                                         </div>
                                         <div className="card-content-product more-margin">
-                                            <h3 className="title0">{product?.title}</h3>
+                                            <h3 className="title0 m-title">{product?.title}</h3>
                                             <p className="price-p0">{`€ ${product?.price}`}</p>
                                             {cartState?.cartproducts?.find(item => item?._id === product?._id) ? <Link to={'/cart'} className="btn-product0 ecom-btn-cart">go to cart</Link> : <button onClick={e => handleAdddCart(e, product)} className="btn-product0 ecom-btn-cart">add to cart</button>}
                                         </div>

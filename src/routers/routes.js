@@ -14,7 +14,6 @@ import AuthRoutes from './authRoutes'
 
 
 import { Route, Routes } from "react-router-dom";
-import Timer from '../pages/timer'
 import CheckOutPage from '../pages/checkout'
 import ProfilePage from '../pages/profile-page'
 import Address from '../components/profilecomp/profilepages/address'
@@ -35,7 +34,7 @@ function AllRoute() {
                 <Route exact path="/auth/login" element={<LoginPage />} />
                 <Route exact path="/auth/signup" element={<SignupPage />} />
                 <Route exact path="/products" element={<ProductListingPage />} />
-                <Route exact path='/timer' element={<Timer />} />
+                {/* <Route exact path='/timer' element={<Timer />} /> */}
                 <Route exact path='/profile' element={<ProfilePage />}>
                     <Route path='address' element={<Address />} />
                     <Route path='orders' element={<OrderDetails />} />

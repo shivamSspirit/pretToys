@@ -11,7 +11,7 @@ function Account() {
     return (
         <div className='account-conatiner'>
             <h3>Account settings</h3>
-            <button onClick={() => logout()}>Logout</button>
+            <button className='acc-log' onClick={() => logout()}>Logout</button>
         </div>
     )
 }

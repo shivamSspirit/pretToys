@@ -1,10 +1,11 @@
+@import url(../../assest/css/theme.css);
+
 .heroform {
-    background-color: rgb(218, 218, 203);
+    background: #555;
     display: flex;
     flex-direction: column;
     width: 29vw;
     height: auto;
-    /* background-image: linear-gradient(to bottom right, rgb(32, 73, 81), rgb(97, 102, 161)); */
     position: absolute;
     left: 50%;
     top: 50%;
@@ -38,12 +39,32 @@
 
 .formsection {}
 
-.modalFooter {}
+.modalFooter {
+    display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 
-.dummy {}
+.dummy {
+    background: var(--backgroundImg);
+    padding: .3rem;
+    border: none;
+}
 
-.actions {}
+.actions {
+   display: flex;
+   flex-direction: row;
+   gap: .3rem;
+}
 
-.cancel {}
+.cancel {
+    background: var(--backgroundImg);
+    padding: .3rem;
+    border: none;
+}
 
-.save {}
+.save {
+    background: var(--backgroundImg);
+    padding: .3rem;
+    border: none;
+}
