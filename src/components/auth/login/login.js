@@ -47,7 +47,7 @@ function Login() {
                                 </div>
                                 <div className="med">
                                     <label className="label ecom-label" for="pwd"> Password </label>
-                                    <input value={values?.password} onChange={handleChange} required className="input" type="text" name="pwd" />
+                                    <input value={values?.password} onChange={handleChange} required className="input input-pwd" type="text" name="pwd" />
                                     {errors.password && <p className='login-error'>{errors.password}</p>}
                                 </div>
                                 <div className="med login-btn-med">

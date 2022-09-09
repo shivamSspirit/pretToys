@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import './cart.css'
 import { useCartActions } from '../../hooks/cartAction'
@@ -7,13 +7,12 @@ import { useWishActions } from '../../hooks/wishAction'
 import { useCart } from '../../contexts/cart-context';
 
 
-
 function Cart() {
     const { cartState } = useCart();
     const { addToWish } = useWishActions();
     const { removeFromCart, updateExistingProduct } = useCartActions();
-    const {dispatchCart}  = useCart();
-    const [currnstate,setcurrstate] = useState();
+    const { dispatchCart } = useCart();
+    const [currnstate, setcurrstate] = useState();
 
 
     const removeItemFromCart = async (productId) => {
@@ -24,7 +23,7 @@ function Cart() {
 
     useEffect(() => {
         if (cartState?.selectedAddress) {
-           setcurrstate(cartState?.selectedAddress)
+            setcurrstate(cartState?.selectedAddress)
         }
     }, [cartState?.selectedAddress])
 
@@ -50,87 +49,87 @@ function Cart() {
 
     const loadScript = (src) => {
         return new Promise((resolve) => {
-          const script = document.createElement("script");
-          script.src = src;
-          document.body.appendChild(script);
-          script.onload = () => resolve(true);
-          script.onerror = () => resolve(false);
+            const script = document.createElement("script");
+            script.src = src;
+            document.body.appendChild(script);
+            script.onload = () => resolve(true);
+            script.onerror = () => resolve(false);
         });
-      };
+    };
 
 
 
-      const displayRazorpay = async () => {
+    const displayRazorpay = async () => {
         const respose = await loadScript(
-          "https://checkout.razorpay.com/v1/checkout.js"
+            "https://checkout.razorpay.com/v1/checkout.js"
         );
-    
+
         if (!respose) {
             console.log("error", "Razorpay SDK failed to load.")
-        //   showToast("error", "Razorpay SDK failed to load.");
-          return;
+            //   showToast("error", "Razorpay SDK failed to load.");
+            return;
         }
-    
+
         const options = {
-          key: "rzp_test_fWRvPNz4kh1YTV",
-          amount: 100,
-          currency: "INR",
-          name: "Pret toys",
-          description: "Enjoy the products & thanks for shopping with us.",
-        //   image: logo,
-    
-          handler: ({ razorpay_payment_id }) => {
-            // save order
+            key: "rzp_test_fWRvPNz4kh1YTV",
+            amount: 100,
+            currency: "INR",
+            name: "Pret toys",
+            description: "Enjoy the products & thanks for shopping with us.",
+            //   image: logo,
 
-            console.log("razpaerpayisd",razorpay_payment_id)
+            handler: ({ razorpay_payment_id }) => {
+                // save order
 
-            if(razorpay_payment_id){
-                dispatchCart({
-                    type:"ADD_TO_CART",
-                    payload:[]
-                })
-            }
-            // orderDispatch({
-            //   type: SAVE_ORDER,
-            //   payload: {
-            //     orderId: uuid(),
-            //     paymentId: razorpay_payment_id,
-            //     date: getDate(),
-            //     coupon,
-            //     subTotal,
-            //     totalAmount,
-            //     totalDiscount,
-            //     totalAmountWithCoupon,
-            //     address: selectedAddress,
-            //     products: [...cartProducts],
-            //   },
-            // });
-    
-            // empty cart
-            // cartDispatch({ type: INITIALIZE_CART, payload: [] });
-            navigate("/profile/orders");
-          },
-          prefill: {
-            name: 'shivam',
-            email: 'shivamssoni6@gmail.com',
-            contact: "9988776655",
-          },
-          theme: {
-            color: "#302f34",
-          },
+                console.log("razpaerpayisd", razorpay_payment_id)
+
+                if (razorpay_payment_id) {
+                    dispatchCart({
+                        type: "ADD_TO_CART",
+                        payload: []
+                    })
+                }
+                // orderDispatch({
+                //   type: SAVE_ORDER,
+                //   payload: {
+                //     orderId: uuid(),
+                //     paymentId: razorpay_payment_id,
+                //     date: getDate(),
+                //     coupon,
+                //     subTotal,
+                //     totalAmount,
+                //     totalDiscount,
+                //     totalAmountWithCoupon,
+                //     address: selectedAddress,
+                //     products: [...cartProducts],
+                //   },
+                // });
+
+                // empty cart
+                // cartDispatch({ type: INITIALIZE_CART, payload: [] });
+                navigate("/profile/orders");
+            },
+            prefill: {
+                name: 'shivam',
+                email: 'shivamssoni6@gmail.com',
+                contact: "9988776655",
+            },
+            theme: {
+                color: "#302f34",
+            },
         };
-    
+
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
         paymentObject.on("payment.failed", () => {
             console.log("error", "Payment failed, please try again.")
-        //   showToast("error", "Payment failed, please try again.");
+            //   showToast("error", "Payment failed, please try again.");
         });
-      };
+    };
 
 
     return (
-        <div style={{height:"100%"}}>
+        <div style={{ height: "100%" }}>
             {cartState?.cartproducts?.length > 0 ? (
 
                 <div className="cart-container">
@@ -185,11 +184,11 @@ function Cart() {
 
                                 <div className="price-details">
                                     <div className='small-address-section'>
-                                        {!currnstate &&<Link to={'/profile/address'} style={{textDecoration:"none", color:"inherit"}}>please select a address</Link>}
+                                        {!currnstate && <Link to={'/profile/address'} style={{ textDecoration: "none", color: "inherit" }}>please select a address</Link>}
                                         {currnstate && <>
-                                        <div className='link-sec'>
-                                            <Link to={'/profile/address'} style={{textDecoration:"none"}}>Go to Address</Link>
-                                        </div>
+                                            <div className='link-sec'>
+                                                <Link to={'/profile/address'} style={{ textDecoration: "none" }}>Go to Address</Link>
+                                            </div>
                                             <div className='selected-adrs'>
                                                 <span>{currnstate?.housedetails}</span>
                                                 <span>{currnstate?.cityAndstate}</span>
@@ -232,7 +231,7 @@ function Cart() {
                                     </div>
                                     <br />
 
-                                    <button disabled={!cartState?.selectedAddress} onClick={()=>displayRazorpay()} style={{opacity:`${!cartState?.selectedAddress?"0.5":"1"}`}} className="btn outline-primary cart-p-btn">Checkout</button>
+                                    <button disabled={!cartState?.selectedAddress} onClick={() => displayRazorpay()} style={{ opacity: `${!cartState?.selectedAddress ? "0.5" : "1"}` }} className="btn outline-primary cart-p-btn">Checkout</button>
                                 </div>
 
                             </div>

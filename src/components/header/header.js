@@ -33,7 +33,7 @@ function Header() {
                     </div>
                     <div className="ecom-nav">
                         <Link to={'/'} className="nav-link">Home</Link>
-                        <Link to={'/products'} className="nav-link">shopnow</Link>
+                        <Link to={'/products'} className="nav-link">Shopnow</Link>
                     </div>
                     <div className="search-bar">
                         <input className="search" placeholder="Search for brands" type="text" name="search" />
@@ -41,7 +41,7 @@ function Header() {
                     <div className="socials-ecom">
                         <span className='admin-icon'>
                             <Link className='account-link' to="/profile">
-                                <span className='user-name'>{localStorage.getItem("authUser") ? localStorage.getItem("authUser") : 'creater'}</span>
+                                <span className='user-name'>{localStorage.getItem("authUser") ? localStorage.getItem("authUser") : 'Creater'}</span>
                                 <img src={userIcon}
                                     className="social-icons" />
                             </Link>
@@ -50,7 +50,7 @@ function Header() {
                             <Link to="/wishlist">
                                 <img src={heartIcon}
                                     className="social-icons" />
-                                    <span className='badgeswish'>{wishState?.wishCount}</span>
+                                <span className='badgeswish'>{wishState?.wishCount}</span>
                             </Link>
                         </span>
                         <span>

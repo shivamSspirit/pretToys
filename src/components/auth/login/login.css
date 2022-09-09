@@ -9,6 +9,15 @@
 	height: calc(100% - 85px);
 }
 
+.input-email {
+	outline: none;
+}
+
+.input-pwd {
+	outline: none;
+}
+
+
 .log-contains {
 	display: flex;
 	width: 100%;
@@ -37,20 +46,31 @@
 
 .ecom-user {
 	text-align: center;
-	color: var(--default-color);
+	color: var(--login-text-fonts-color);
+	font-family: var(--login-text-font-family);
+	font-weight: var(--login-text-font-weights);
 }
 
 .ecom-label {
-	color: var(--default-color);
+	color: var(--login-text-fonts-color) !important;
+	font-family: var(--login-text-font-family);
+	font-weight: var(--login-text-font-weights);
 }
 
 .login-btn-med {
-	margin-left: 1.8rem;
+	display: flex;
 }
 
 .log-btn {
-	background-color: var(--default-color);
-	color: var(--primary-color);
+	background-color: var(--login-text-bg-color);
+	color: var(--login-text-fonts-color);
+	width: 50%;
+	padding: 0.3rem;
+	font-size: var(--login-text-fonts-sizes) !important;
+	font-weight: var(--login-text-font-weights);
+	border-radius: 9999px;
+	cursor: pointer;
+	border: none;
 }
 
 .ecom-warn {
@@ -69,7 +89,14 @@
 
 .ecom-signup {
 	text-decoration: none;
-	color: var(--default-color);
+	color: var(--login-text-fonts-color) !important;
+	font-family: var(--login-text-font-family);
+	font-size: var(--login-text-fonts-sizes);
+	font-weight: var(--login-text-font-weights);
+}
+
+.ecom-signup:hover {
+	color: var(--login-text-bg-color) !important;
 }
 
 .log-as-guest {
@@ -78,7 +105,8 @@
 	justify-content: center;
 }
 
-.log-btn {
-	width: 50%;
-	padding: 0.3rem;
+@media only screen and (max-width: 480px) {
+	.ecom-form {
+		width: 80%;
+	}
 }

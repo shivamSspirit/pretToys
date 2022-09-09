@@ -11,9 +11,13 @@ body {
 	flex-direction: row;
 	height: auto;
 	background: var(--backgroundImg);
-	color: var(--secondary-color);
+	color: var(--header-text-fonts-color);
 	padding: 1rem;
 	position: sticky;
+	font-size: var(--header-text-fonts-sizes);
+	font-family: var(--header-text-font-family);
+
+
 }
 
 .icon-container {
@@ -37,7 +41,13 @@ body {
 	align-content: center;
 	display: flex;
 	align-items: center;
-	color: var(--secondary-color);
+	/* color: var(--secondary-color); */
+
+	color: var(--header-text-fonts-color);
+	/* padding: 1rem;
+	position: sticky; */
+	font-size: var(--header-text-fonts-sizes);
+	font-family: var(--header-text-font-family);
 }
 
 .account-link {
@@ -69,10 +79,11 @@ body {
 }
 
 .nav-link {
-	font-size: var(--head-txt-size);
-	font-weight: var(--head-txt-weight);
+	font-size: var(--header-text-fonts-sizes);
+	font-weight: var(--header-text-font-weights);
 	text-decoration: none;
-	color: var(--secondary-color);
+	color: var(--header-text-fonts-color);
+	/* --header-text-fonts-sizes */
 }
 
 .search-bar {
@@ -89,8 +100,12 @@ body {
 	position: relative;
 	background-color: var(--secondary-color);
 	padding: 1rem;
-	border: 1px solid var(--gray-color);
-	border-radius: 4px;
+	border: 2px solid grey;
+	border-radius: 9999px;
+	outline: none;
+	font-family: var(--header-text-font-family) !important;
+	font-weight: var(--header-text-font-weights);
+	/* color: var(--header-text-font-color); */
 }
 
 .search-icon {
@@ -100,10 +115,10 @@ body {
 	left: 52.2rem;
 }
 
-.nav-link:hover {
+/* .nav-link:hover {
 	color: var(--default-color);
 	background-color: var(--primary-color);
-}
+} */
 
 .socials-ecom {
 	display: flex;
@@ -113,6 +128,7 @@ body {
 	justify-content: flex-end;
 	justify-items: center;
 	align-items: center;
+	color: var(--header-text-fonts-color);
 }
 
 .social-icons {
@@ -125,9 +141,10 @@ body {
 	top: 1.2rem;
 	right: 8.6rem;
 	border-radius: 50%;
-	background-color: brown;
+	background-color: grey;
 	width: 1.2rem;
 	text-align: center;
+	color: var(--header-text-font-color);
 }
 
 .badgesbag {
@@ -135,9 +152,10 @@ body {
 	top: 1.2rem;
 	right: 5.5rem;
 	border-radius: 50%;
-	background-color: rgb(129, 95, 95);
+	background-color: grey;
 	width: 1.2rem;
 	text-align: center;
+	color: var(--header-text-font-color);
 }
 
 @media only screen and (max-width: 385px) {
