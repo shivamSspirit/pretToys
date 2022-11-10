@@ -18,7 +18,6 @@ function Checkout() {
                     <div className='adrs-list'>
                         <ul className='addresses'>
                             <li className='adrs-item'>
-                                {/* <span><input type={'radio'}/></span> */}
                                 <input type="radio" id="html" name="fav_language" value="HTML" />
                                 <label for="html"><div>
                                     helloo

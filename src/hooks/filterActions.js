@@ -9,7 +9,6 @@ export function useFiltershooks() {
     const { allproducts } = useGlobal()
 
     const addThisCategoryFilter = (target) => {
-        console.log('target', target.value)
         if (target.checked) {
             let newFiltered = allproducts?.products?.filter(item => item?.categoryName === target.value)
             console.log('new filtered', newFiltered)

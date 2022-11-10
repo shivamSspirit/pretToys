@@ -14,24 +14,11 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    console.log('logout')
     localStorage.clear();
     setAuthToken('');
     setAuthUser(null);
     navigate("/")
   }
-
-  // const resetFunction = () => {
-  //     localStorage.removeItem("authToken");
-  //     localStorage.removeItem("authUser");
-  //     setAuthToken("");
-  //     setAuthUser(null);
-  //     dispatch({ type: CART_OPERATION, payload: { cart: [] } });
-  //     dispatch({ type: WISHLIST_OPERATION, payload: { wishlist: [] } });
-  //     dispatch({ type: SET_ADDRESS, payload: { address: [] } });
-  //     dispatch({ type: SET_ORDERS, payload: { orders: [] } });
-  //     navigate("/login");
-  //   };
 
   return (
     <AuthContext.Provider

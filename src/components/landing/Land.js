@@ -17,7 +17,6 @@ function Land() {
                 setLoader(false)
                 setCategory(res?.data?.categories)
             }
-
         })
     }, [])
 

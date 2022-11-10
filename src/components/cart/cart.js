@@ -66,7 +66,6 @@ function Cart() {
 
         if (!respose) {
             console.log("error", "Razorpay SDK failed to load.")
-            //   showToast("error", "Razorpay SDK failed to load.");
             return;
         }
 
@@ -76,11 +75,8 @@ function Cart() {
             currency: "INR",
             name: "Pret toys",
             description: "Enjoy the products & thanks for shopping with us.",
-            //   image: logo,
 
             handler: ({ razorpay_payment_id }) => {
-                // save order
-
                 console.log("razpaerpayisd", razorpay_payment_id)
 
                 if (razorpay_payment_id) {
@@ -89,24 +85,6 @@ function Cart() {
                         payload: []
                     })
                 }
-                // orderDispatch({
-                //   type: SAVE_ORDER,
-                //   payload: {
-                //     orderId: uuid(),
-                //     paymentId: razorpay_payment_id,
-                //     date: getDate(),
-                //     coupon,
-                //     subTotal,
-                //     totalAmount,
-                //     totalDiscount,
-                //     totalAmountWithCoupon,
-                //     address: selectedAddress,
-                //     products: [...cartProducts],
-                //   },
-                // });
-
-                // empty cart
-                // cartDispatch({ type: INITIALIZE_CART, payload: [] });
                 navigate("/profile/orders");
             },
             prefill: {
@@ -123,7 +101,6 @@ function Cart() {
         paymentObject.open();
         paymentObject.on("payment.failed", () => {
             console.log("error", "Payment failed, please try again.")
-            //   showToast("error", "Payment failed, please try again.");
         });
     };
 

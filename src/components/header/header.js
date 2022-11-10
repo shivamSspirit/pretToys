@@ -11,10 +11,6 @@ import heartIcon from '../../assest/images/jpeg/heart.png'
 import userIcon from '../../assest/images/jpeg/user.png'
 import headerIcon from '../../assest/images/svgs/toy.svg'
 
-// by age
-// by brand
-// by category
-
 function Header() {
 
     const { wishState } = useWishList()

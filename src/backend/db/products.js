@@ -9,13 +9,6 @@ import shoesImg from '../../assest/images/jpeg/adidasDon.webp'
  * You can add products of your wish with different attributes
  * */
 
-// 4 categories
-// creativity
-// premium
-// expensive
-// trucktoys
-
-
 export const products = [
   {
     _id: uuid(),

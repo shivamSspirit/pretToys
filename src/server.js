@@ -40,20 +40,7 @@ export function makeServer({ environment = "development" } = {}) {
       wishlist: Model,
     },
 
-    // rzp_test_fWRvPNz4kh1YTV = key id
-    // fJjYpveoMHXHIGAYckhFw4mn= key secret
-
-    // Runs on the start of the server
     seeds(server) {
-
-      // const shortid = require("shortid");
-      // const Razorpay = require("razorpay");
-
-      // const razorpay = new Razorpay({
-      //   key_id: "rzp_test_fWRvPNz4kh1YTV",
-      //   key_secret: "fJjYpveoMHXHIGAYckhFw4mn",
-      // });
-      // disballing console logs from Mirage
       server.logging = false;
       products.forEach((item) => {
         server.create("product", { ...item });

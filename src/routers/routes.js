@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CartPage from '../pages/cart-page'
 import HomePage from '../pages/home-page'
 import LoginPage from '../pages/login-page'
@@ -6,11 +6,7 @@ import ProductListingPage from '../pages/productlisting-page'
 import SignupPage from '../pages/signup-page'
 import WishlistPage from '../pages/wishlist-page'
 import Mockman from 'mockman-js'
-
 import AuthRoutes from './authRoutes'
-
-// import { useNavigate } from 'react-router-dom'
-// import { useAuth } from '../contexts/globalContext'
 
 
 import { Route, Routes } from "react-router-dom";
@@ -34,7 +30,6 @@ function AllRoute() {
                 <Route exact path="/auth/login" element={<LoginPage />} />
                 <Route exact path="/auth/signup" element={<SignupPage />} />
                 <Route exact path="/products" element={<ProductListingPage />} />
-                {/* <Route exact path='/timer' element={<Timer />} /> */}
                 <Route exact path='/profile' element={<ProfilePage />}>
                     <Route path='address' element={<Address />} />
                     <Route path='orders' element={<OrderDetails />} />
@@ -45,9 +40,6 @@ function AllRoute() {
                 <Route path='/checkout' element={<AuthRoutes><CheckOutPage /></AuthRoutes>} />
                 <Route path='/mockman' element={<Mockman />} />
             </Routes>
-            {/* 
-            {!ifauth&& <Navigate to={'/auth/login'} replace/>}
-            {ifauth&& <Navigate to="/wishlist" replace />}  */}
         </div>
     )
 }
