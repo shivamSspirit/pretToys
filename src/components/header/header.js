@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useWishList } from '../../contexts/wishlist-context'
 import { useCart } from '../../contexts/cart-context'
+import { useGlobal } from '../../contexts/globalContext'
 import './header.css'
 
 
@@ -15,7 +16,9 @@ function Header() {
 
     const { wishState } = useWishList()
     const { cartState } = useCart()
+    const {searchquery,handlesearchChange} = useGlobal()
 
+   
     return (
         <div>
             <header>
@@ -32,7 +35,7 @@ function Header() {
                         <Link to={'/products'} className="nav-link">Shopnow</Link>
                     </div>
                     <div className="search-bar">
-                        <input className="search" placeholder="Search for brands" type="text" name="search" />
+                        <input value={searchquery} onChange={handlesearchChange} className="search" placeholder="Search for brands" type="text" name="search" />
                     </div>
                     <div className="socials-ecom">
                         <span className='admin-icon'>

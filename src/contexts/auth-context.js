@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
   const currentUser = localStorage.getItem("currentUser")
   const [authToken, setAuthToken] = useState(localStorageAuth ? localStorageAuth : "");
   const [authUser, setAuthUser] = useState(localStorageUser ? localStorageUser : null);
-  const [authCurrentUser, setAuthCurrentUser] = useState(currentUser ? currentUser : null)
+  const [authCurrentUser, setAuthCurrentUser] = useState(currentUser ? currentUser : null);
 
   const navigate = useNavigate()
 

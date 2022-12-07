@@ -13,10 +13,15 @@ const GlobalContext = ({ children }) => {
 	const [allAddress,setAllAddress] = useState([]);
 	const [slideToggle,setSlideToggle] = useState(false);
 	const [loader,setLoader] =  useState(false);
+	const [searchquery,setSearchQuery] = useState('')
 
 	const setDynamicProperties = (name, value) => {
 		setglobalStateProperties({ ...globalStateProperties, [name]: value });   // set dynamic properties with this
 	};
+
+	const handlesearchChange=(e)=>{
+        setSearchQuery(e.target.value)
+    }
 
 
 	let contextValue = {
@@ -29,7 +34,10 @@ const GlobalContext = ({ children }) => {
 		openmodal,setOpenModal,
 		allAddress,setAllAddress,
 		slideToggle,setSlideToggle,
-		loader,setLoader
+		loader,setLoader,
+		searchquery,
+		setSearchQuery,
+		handlesearchChange
 	};
 
 	return (

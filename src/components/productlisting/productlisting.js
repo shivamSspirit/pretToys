@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import debounce from 'lodash.debounce';
 
 import './productlisting.css'
 import HeartIcon from '../../assest/images/svgs/blank.svg'
@@ -28,7 +29,7 @@ function ProductListing() {
     const { cartState } = useCart();
     const { filterState, dispatchFilter } = useFilter()
     const { wishState } = useWishList();
-    const { allproducts, setLoader, dispatchAllproducts, currentCategory, setCurrentCategory, slideToggle, setSlideToggle, loader } = useGlobal();
+    const { allproducts, setLoader, dispatchAllproducts, currentCategory, setCurrentCategory, slideToggle, setSlideToggle, loader, searchquery, handlesearchChange } = useGlobal();
     const { postToCart } = useCartActions();
     const { addToWish, removeFromWish } = useWishActions();
 
@@ -63,6 +64,26 @@ function ProductListing() {
     const sortByOreder = sortByCategory && FilterHelper?.sortByOreder(sortByCategory, filterState?.sortBylth)
     const sortByRatings = sortByOreder && FilterHelper?.sortByRatings(sortByOreder, filterState?.minratings)
     const finalProducts = sortByRatings && sortByRatings;
+
+//    // let listToDisplayproduct;
+
+
+//     if (searchquery !== "") {
+//         listToDisplayproduct = mainProductsss?.filter((product) => {
+//             return product?.item.toLowercase().includes(searchquery);
+//         });
+//     }
+
+//     const debouncedResults = useMemo(() => {
+//         return debounce(handlesearchChange, 300);
+//     }, []);
+
+//     useEffect(() => {
+//         return () => {
+//             debouncedResults.cancel();
+//         };
+//     });
+
 
 
     const handleAdddCart = async (e, product) => {
