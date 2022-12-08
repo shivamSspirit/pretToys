@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
+import { useCart } from '../../contexts/cart-context'
 import './profile.css'
 import Account from './profilepages/account'
 import Address from './profilepages/address'
@@ -8,7 +9,7 @@ import OrderDetails from './profilepages/order'
 function ProfileComponent() {
     const location = useLocation()
     const [currentUser, setCurrentUser] = useState()
-
+   
     useEffect(() => {
         if (localStorage.getItem("currentUser")) {
             setCurrentUser(JSON.parse(localStorage.getItem("currentUser")))

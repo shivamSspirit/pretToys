@@ -48,7 +48,6 @@ function AddressFormModal(props) {
                 <option value="yaman">yaman</option>
                 <option value="dubai">dubai</option>
               </select>
-              {/* <input name='country' className={styles.adrsinputs} /> */}
 
               <input value={values?.username}  onChange={(e)=>handleChange(e)} name='username' className={styles.adrsinputs} />
               <input value={values?.mobile}  onChange={(e)=>handleChange(e)} name='mobile' className={styles.adrsinputs} />

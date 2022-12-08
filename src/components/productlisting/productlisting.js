@@ -65,26 +65,23 @@ function ProductListing() {
     const sortByRatings = sortByOreder && FilterHelper?.sortByRatings(sortByOreder, filterState?.minratings)
     const finalProducts = sortByRatings && sortByRatings;
 
-//    // let listToDisplayproduct;
+    let listToDisplayproduct;
 
+    if (searchquery !== "") {
+        listToDisplayproduct = allproducts?.products?.filter((product) => {
+            return product?.title?.toLowerCase().includes(searchquery);
+        });
+    }
 
-//     if (searchquery !== "") {
-//         listToDisplayproduct = mainProductsss?.filter((product) => {
-//             return product?.item.toLowercase().includes(searchquery);
-//         });
-//     }
+    const debouncedResults = useMemo(() => {
+        return debounce(handlesearchChange, 300);
+    }, []);
 
-//     const debouncedResults = useMemo(() => {
-//         return debounce(handlesearchChange, 300);
-//     }, []);
-
-//     useEffect(() => {
-//         return () => {
-//             debouncedResults.cancel();
-//         };
-//     });
-
-
+    useEffect(() => {
+        return () => {
+            debouncedResults.cancel();
+        };
+    });
 
     const handleAdddCart = async (e, product) => {
         e.preventDefault();
@@ -467,7 +464,7 @@ function ProductListing() {
                         {loader ? <Loader /> : (
 
                             <div className="products">
-                                {allproducts?.products && ((currentCategory && !ifFilterclear) ? finalProducts : allproducts?.products)?.map((product, idx) => (
+                                {allproducts?.products && ((currentCategory && !ifFilterclear) ? finalProducts : searchquery ? listToDisplayproduct : allproducts?.products)?.map((product, idx) => (
                                     <div key={`pro${idx}`} class="product-card ecom-card0">
                                         <div class="img-container-product ecom-p0">
                                             <img class="p-img" alt="" src={product?.proImg} />
@@ -489,8 +486,6 @@ function ProductListing() {
                     </div>
                 </div>
             </div>
-
-            {/* <ToastContainer /> */}
         </div>
     )
 }

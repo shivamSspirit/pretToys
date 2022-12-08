@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import * as cartActions from '../../constants/actions'
 
 import './cart.css'
 import { useCartActions } from '../../hooks/cartAction'
@@ -65,7 +66,6 @@ function Cart() {
         );
 
         if (!respose) {
-            console.log("error", "Razorpay SDK failed to load.")
             return;
         }
 
@@ -83,6 +83,10 @@ function Cart() {
                     dispatchCart({
                         type: "ADD_TO_CART",
                         payload: []
+                    })
+                    dispatchCart({
+                        type:cartActions?.Cart?.ADD_TO_ORDERS,
+                        payload:razorpay_payment_id
                     })
                 }
                 navigate("/profile/orders");
