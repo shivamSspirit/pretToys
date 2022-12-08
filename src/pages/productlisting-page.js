@@ -6,10 +6,10 @@ import { ToastContainer } from 'react-toastify';
 
 function ProductListingPage() {
   return (
-    <div style={{width:"100vw",height:"100vh"}}>
-      <Header/>
-      <ProductListing/>
-      <ToastContainer/>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Header />
+      <ProductListing />
+      <ToastContainer />
     </div>
   )
 }

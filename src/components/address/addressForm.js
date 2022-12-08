@@ -4,7 +4,7 @@ import { useGlobal } from '../../contexts/globalContext'
 import Closesvg from '../../assest/images/svgs/delete.svg'
 import useAddressForm from '../../hooks/useforms/useAddressform'
 
-function AddressFormModal(props) {
+function AddressFormModal() {
   const { openmodal, setOpenModal,allAddress,setAllAddress } = useGlobal()
 
   const formLogin = () => {
@@ -23,7 +23,7 @@ function AddressFormModal(props) {
         onCancel(event);
         setOpenModal(false)
       } else {
-         console.log("error",errors)
+         console.error("error",errors)
       }
   }
 

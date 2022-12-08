@@ -8,10 +8,9 @@ export const signupHandler = async (userData) => {
         localStorage.setItem("token", response.data.encodedToken);
         return response;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
-
 
 
 export const LoginHandler = async (userLogdata) => {
@@ -22,6 +21,6 @@ export const LoginHandler = async (userLogdata) => {
         localStorage.setItem("currentUser", JSON.stringify(response.data.foundUser))
         return response;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }

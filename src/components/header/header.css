@@ -80,7 +80,6 @@ body {
 	font-weight: var(--header-text-font-weights);
 	text-decoration: none;
 	color: var(--header-text-fonts-color);
-	/* --header-text-fonts-sizes */
 }
 
 .search-bar {
@@ -102,7 +101,6 @@ body {
 	outline: none;
 	font-family: var(--header-text-font-family) !important;
 	font-weight: var(--header-text-font-weights);
-	/* color: var(--header-text-font-color); */
 }
 
 .search-icon {
@@ -111,11 +109,6 @@ body {
 	position: absolute;
 	left: 52.2rem;
 }
-
-/* .nav-link:hover {
-	color: var(--default-color);
-	background-color: var(--primary-color);
-} */
 
 .socials-ecom {
 	display: flex;

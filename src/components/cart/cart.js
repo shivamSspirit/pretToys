@@ -66,6 +66,7 @@ function Cart() {
         );
 
         if (!respose) {
+            console.log("error", "Razorpay SDK failed to load.")
             return;
         }
 
@@ -77,8 +78,6 @@ function Cart() {
             description: "Enjoy the products & thanks for shopping with us.",
 
             handler: ({ razorpay_payment_id }) => {
-                console.log("razpaerpayisd", razorpay_payment_id)
-
                 if (razorpay_payment_id) {
                     dispatchCart({
                         type: "ADD_TO_CART",

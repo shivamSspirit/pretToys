@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import { useWishList } from '../../contexts/wishlist-context'
 import { useCart } from '../../contexts/cart-context'
 import { useGlobal } from '../../contexts/globalContext'
-import './header.css'
-
 
 import shoppingBag from '../../assest/images/jpeg/shopping-bag.png'
 import heartIcon from '../../assest/images/jpeg/heart.png'
 import userIcon from '../../assest/images/jpeg/user.png'
 import headerIcon from '../../assest/images/svgs/toy.svg'
+
+import './header.css'
 
 function Header() {
 

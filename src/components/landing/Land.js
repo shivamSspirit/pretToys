@@ -22,7 +22,6 @@ function Land() {
 
     useEffect(() => {
         if (!localStorage.getItem("token")) {
-            console.log("token")
             navigate("/auth/login")
         }
     }, [localStorage.getItem("token")])

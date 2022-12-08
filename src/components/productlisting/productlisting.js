@@ -91,7 +91,6 @@ function ProductListing() {
     }
 
     const clearAllFilter = () => {
-        console.log('clear')
         setIfFilterclear(true);
         setCurrentCategory('');
     }

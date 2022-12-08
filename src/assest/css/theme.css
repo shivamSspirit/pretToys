@@ -5,27 +5,17 @@
     /* for header */
     --header-text-fonts-sizes:16px;
     --header-text-fonts-color:#d0e4f6;
-    /* --header-text-fonts-decoration:; */
     --header-text-font-family:"Poppins-SemiBold";
     --header-text-font-weights:700;
-
     /* header part is over */
-
 
     /* know login screen */
     --login-text-fonts-sizes:1rem;
     --login-text-fonts-color:#d0e4f6;
-    /* --login-text-fonts-decoration:; */
     --login-text-font-family:"Poppins-SemiBold";
     --login-text-font-weights:600;
     --login-text-bg-color:grey;
-
-
     /* login screen over */
-
-
-
-
 
     /* for background-color:*/
     --default-color:#F0F8FF;
@@ -37,7 +27,6 @@
     /* for headers */
     --head-txt-size:1rem;
     --head-txt-weight:550;
-
     --head-txt-color:var(--primary-color);
     --head-txt-hover:var(--default-color);
     /* end header */
