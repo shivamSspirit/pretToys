@@ -5,7 +5,7 @@
 PretToys for Toys
 </p>
 
-If you are a child or parents you also the toys for playing? Do you love toys? Pret toys is for you! Its the E-Commerce Website for different varieties of toys.
+If you are a child or parents you also want the toys for playing? Do you love toys? Pret toys is for you! Its the E-Commerce Website for different varieties of toys.
 
 [openinvscode](https://vscode.dev/github/shivamsoni00/pretToys)
 
