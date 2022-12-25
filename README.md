@@ -52,8 +52,7 @@ $ npm start
 9. Razorpay Payment Integration API
 10. React Context API + useReducer
 
-<<<<<<< HEAD
-=======
+
 [livelink](https://pret-toys-e1ycsnzgn-shivamsoni00.vercel.app)
->>>>>>> 3a75146c50ba74ff31e7e65913d29084b431e7a2
+
 
