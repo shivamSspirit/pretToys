@@ -5,9 +5,7 @@
 PretToys for Toys
 </p>
 
-[livelink](https://pret-toys-e1ycsnzgn-shivamsoni00.vercel.app)
-
-If you are a child or parents you also the toys for playing? Do you love toys? Pret toys is for you! Its the E-Commerce Website for different varieties of toys.
+If you are a child or parents you also want the toys for playing? Do you love toys? Pret toys is for you! Its the E-Commerce Website for different varieties of toys.
 
 [openinvscode](https://vscode.dev/github/shivamsoni00/pretToys)
 
@@ -54,4 +52,8 @@ $ npm start
 9. Razorpay Payment Integration API
 10. React Context API + useReducer
 
+<<<<<<< HEAD
+=======
+[livelink](https://pret-toys-e1ycsnzgn-shivamsoni00.vercel.app)
+>>>>>>> 3a75146c50ba74ff31e7e65913d29084b431e7a2
 
