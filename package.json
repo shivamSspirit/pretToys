@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "dayjs": "^1.11.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
     "lodash": "^4.17.21",
@@ -24,8 +27,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/utils/functions/**",
+      "src/reducer/functions/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 90
+      }
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

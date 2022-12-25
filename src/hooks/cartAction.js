@@ -27,8 +27,6 @@ export function useCartActions() {
 				type: ActionTypes?.Cart?.ADD_TO_CART,
 				payload: response?.data?.cart
 			})
-
-			console.log('money', cartState?.totalMoney)
 		}
 		if (callback) {
 			return callback();
@@ -44,7 +42,6 @@ export function useCartActions() {
 				payload: response?.data?.cart
 			})
 		}
-
 	}
 
 	async function updateExistingProduct(productId, actionobj, product) {
@@ -53,12 +50,10 @@ export function useCartActions() {
 			response = await cartApis?.productAction(productId, actionobj);
 		} else {
 			if (product?.qty === 1) {
-				console.log('hello')
 				response = await removeFromCart(productId, () => {
 					console.log("removing product if quantity is one")
 				})
 			} else {
-				console.log('nahi')
 				response = await cartApis?.productAction(productId, actionobj);
 			}
 		}

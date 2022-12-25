@@ -219,8 +219,8 @@ function Cart() {
                     </div>
                 </div>
             ) : (
-                <div>
-                    not added products yet pls do shooping with this <Link style={{ textDecoration: 'none', color: 'inherit' }} to={'/products'}>shooping</Link>
+                <div className='text-link'>
+                    not added products yet pls do shooping with this <Link className='shopping-link' style={{ textDecoration: 'none', color: 'inherit' }} to={'/products'}>shooping</Link>
                 </div>
             )
             }

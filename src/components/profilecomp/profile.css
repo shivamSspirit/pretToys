@@ -65,6 +65,18 @@
     gap: 0.5rem;
 }
 
+.addnew{
+    margin-top: 1rem;
+}
+
 .adrs-label {
     text-align: left;
+}
+
+.acc-log{
+    background-color: brown;
+    border: 1.8px solid rebeccapurple;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
 }

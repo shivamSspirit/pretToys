@@ -216,6 +216,16 @@
     align-items: center;
 }
 
+.text-link{
+	text-align: center;
+}
+
+.shopping-link:hover{
+	color: blueviolet !important;
+	font-size: large;
+	font-weight: 700;
+}
+
 
 @media only screen and (max-width: 768px) {
 

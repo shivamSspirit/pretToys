@@ -43,7 +43,7 @@ function Address() {
                 <Link to={'/cart'}>go to cart</Link>
             </div>
             <div className='addnew'>
-                <button onClick={() => setOpenModal(true)}>add new address</button>
+                <button className='acc-log' onClick={() => setOpenModal(true)}>add new address</button>
             </div>
 
             <div className='address-sections'>

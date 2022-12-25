@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuth } from '../../../contexts/auth-context'
+import '../profile.css'
 
 function Account() {
     const { handleLogout } = useAuth()

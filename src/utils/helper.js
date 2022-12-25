@@ -1,5 +1,6 @@
+
 export const SortbyPrice = (prevProduct, minprice) => {
-    return prevProduct.filter((product) => product.price >= minprice)
+     return prevProduct.filter((product) => product.price >= minprice)
 }
 
 export const sortByCategory = (prevProduct, filterCategory) => {
